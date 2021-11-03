@@ -4,7 +4,7 @@
  * 
  * Written By : tejas Ladhani
  */
-import React from 'react'
+import './style.css'
 import {
   LogoutOutlined,
 } from '@ant-design/icons';

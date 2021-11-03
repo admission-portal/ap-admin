@@ -1,0 +1,6 @@
+.ant-layout-header{
+    /* overwritting antd's css */
+    background: #fff;
+    box-shadow: 2px 5px 8px 0px #cecece !important;
+    z-index: 10;
+}

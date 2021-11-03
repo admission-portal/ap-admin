@@ -9,6 +9,7 @@
  */
 
 import React, { useState } from 'react'
+import './style.css'
 import {
     NotificationOutlined
 } from '@ant-design/icons';
