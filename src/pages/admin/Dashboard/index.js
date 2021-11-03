@@ -1,10 +1,23 @@
-import React from 'react'
 import './style.css'
+import { Row, Col } from 'antd'
+import { ChartContainer } from '../../../containers'
+import { PageHeader } from '../../../components'
 
 export default function Dashboard() {
     return (
         <div className="Dashboard">
-            Dashboard
+            <PageHeader title="Dashboard"/>
+            <Row style={{paddingRight:'1.3em'}}>
+                <Col span={8}>
+                    <ChartContainer />
+                </Col>
+                <Col span={8}>
+                    <ChartContainer />
+                </Col>
+                <Col span={8}>
+                    <ChartContainer />
+                </Col>
+            </Row>
         </div>
     )
 }
