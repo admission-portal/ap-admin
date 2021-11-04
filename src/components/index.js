@@ -5,3 +5,4 @@ export { default as PageHeader } from './PageHeader';
 export { default as DashboardCard } from './Dashboard-Card';
 export { default as UpTrend } from './UpTrend/UpTrend';
 export { default as DownTrend } from './DownTrend/DownTrend';
+export { default as CustomTable } from './CustomTable';
