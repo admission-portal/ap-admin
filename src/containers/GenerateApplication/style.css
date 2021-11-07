@@ -1,0 +1,36 @@
+.GenerateApplication input[type=text] {
+    width: 65vw;
+    padding: 0.6em;
+    margin-top: 0.6em;
+    border: none;
+    border-bottom: 1px solid grey;
+    box-sizing: border-box;
+}
+
+.GenerateApplication input[type=text]:focus,
+.GenerateApplication input[type=number]:focus {
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+
+.GenerateApplication input::-webkit-outer-spin-button, .GenerateApplication input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    padding: 0.6em;
+    margin-top: 0.6em;
+    border: none;
+    border-bottom: 1px solid grey;
+    box-sizing: border-box;
+}
+
+/* Firefox */
+
+.GenerateApplication input[type=number] {
+    -moz-appearance: textfield;
+    padding: 0.6em;
+    margin-top: 0.6em;
+    border: none;
+    border-bottom: 1px solid grey;
+    box-sizing: border-box;
+}
