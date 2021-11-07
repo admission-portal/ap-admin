@@ -8,7 +8,7 @@ export default function Applications() {
     return (
         <div className="Applications">
             {/* <PageHeader title="Applications" /> */}
-            <Tabs defaultActiveKey="1" onChange={()=>{}}  type="card" tabPosition="left" style={{height:'100vh'}}>
+            <Tabs defaultActiveKey="1" onChange={()=>{}}  type="card" tabPosition="left" >
                 <TabPane tab="View Applications" key="1">
                     <ViewApplications/>
                 </TabPane>
