@@ -16,6 +16,9 @@ const Labels = [
     { title: "Guardian's Phone Number", type: 'number', index: 6 },
     { title: "Gender", type: 'option', index: 7 },
     { title: "Blood Group", type: 'option', index: 8 },
+    { title: "Country", type: 'option', index: 9 },
+    { title: "Date Of Birth", type: 'date', index: 10 },
+    { title: "Cast", type: 'text', index: 11 },
 
 ]
 
@@ -25,14 +28,14 @@ export default function SelectFields() {
 
      // Fields/Label in the pool will be stored in GivenFields
      const [GivenFields, setGivenFields] = useState(Labels)
- 
+
      const handleOnDragEnd = (result) => {
          // if dropped outside the droppable area
          if (!result.destination) return;
- 
+
          // if dragged and dropped areas are same.
          if (result.destination.droppableId === result.source.droppableId) return
- 
+
          // item dragged from Selected's pool to the givenOption's pool
          if (result.destination.droppableId === 'Given_option_1') {
              setGivenFields([...GivenFields, SelectedFields[result.source.index]]);
@@ -40,7 +43,7 @@ export default function SelectFields() {
              arr.splice(result.source.index, 1)
              setSelectedFields(arr);
          }
- 
+
          // item dragged from givenOption's pool to the selectedOption's pool
          if (result.destination.droppableId === 'selected_option_1') {
              // let arr = [...SelectedFields]
@@ -51,7 +54,6 @@ export default function SelectFields() {
              arr.splice(result.source.index, 1)
              setGivenFields(arr);
          }
- 
      }
     return (
         <Row>
