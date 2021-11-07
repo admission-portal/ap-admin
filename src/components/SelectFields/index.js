@@ -89,10 +89,10 @@ export default function SelectFields() {
         <>
             <Row disabled>
                 <Col span={24}>
-                    <Button onClick={() => setAutoSelected(!AutoSelected)}>{!AutoSelected?'AUTO SELECT FIELDS':'CUSTOM SELECT'}</Button>{!AutoSelected?' OR':' '}
+                    <Button onClick={() => setAutoSelected(!AutoSelected)}>{!AutoSelected ? 'AUTO SELECT FIELDS' : 'CUSTOM SELECT'}</Button>{!AutoSelected ? ' OR' : ' '}
                 </Col>
                 <Col span={24}>
-                    <Typography.Text italic>{!AutoSelected?'Drag Drop the fields you want to have in your form':' '}</Typography.Text>
+                    <Typography.Text italic>{!AutoSelected ? 'Drag Drop the fields you want to have in your form' : ' '}</Typography.Text>
                 </Col>
 
             </Row>
