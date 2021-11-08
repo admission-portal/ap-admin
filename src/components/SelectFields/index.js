@@ -83,11 +83,12 @@ const data = [
         ]
     },
 ]
-export default function SelectFields() {
+
+export default function SelectFields({ GlobalLabels, setGlobalLabels }) {
     const [AutoSelected, setAutoSelected] = useState(false)
     return (
         <>
-            <Row style={{marginTop:'1.1em'}}>
+            <Row style={{ marginTop: '1.1em' }}>
                 <Col span={24}>
                     <Button onClick={() => setAutoSelected(!AutoSelected)}>{!AutoSelected ? 'AUTO SELECT FIELDS' : 'CUSTOM SELECT FIELDS'}</Button>{!AutoSelected ? ' OR' : ' '}
                 </Col>
@@ -111,7 +112,7 @@ export default function SelectFields() {
             {
                 AutoSelected !== true && data.map((item) => {
                     return (
-                        <SelectFieldSection Labels={item.Labels} title={item.secTitle} />
+                        <SelectFieldSection Labels={item.Labels} title={item.secTitle} GlobalLabels={GlobalLabels} setGlobalLabels={setGlobalLabels} />
                     )
                 })
             }

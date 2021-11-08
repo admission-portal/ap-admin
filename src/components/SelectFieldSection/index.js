@@ -6,7 +6,7 @@ import { useState } from 'react';
 // This will be used By TAG component of antd
 const colors = ['cyan', 'blue', 'geekblue', 'purple']
 
-export default function SelectFieldSection({ Labels, title }) {
+export default function SelectFieldSection({ Labels, title, GlobalLabels, setGlobalLabels }) {
     // Fields/Label dragged from the pool will be stored in the SelectedFields array
     const [SelectedFields, setSelectedFields] = useState([])
 
@@ -33,7 +33,13 @@ export default function SelectFieldSection({ Labels, title }) {
             // let arr = [...SelectedFields]
             // arr.splice(result.source.index, 0, GivenFields[result.source.index])
             // setSelectedFields(arr);
-            setSelectedFields([...SelectedFields, GivenFields[result.source.index]]);
+            
+            //setting up the LOCAL state for UI
+            setSelectedFields([...SelectedFields, GivenFields[result.source.index]])
+
+            // setting up the global state for Application form/DB
+            setGlobalLabels({ ...GlobalLabels, [`${title}`]: [...SelectedFields, GivenFields[result.source.index]] })
+
             let arr = [...GivenFields]
             arr.splice(result.source.index, 1)
             setGivenFields(arr);
@@ -67,7 +73,6 @@ export default function SelectFieldSection({ Labels, title }) {
                 </Col>
 
                 <Col span={12}>
-                    {console.log(SelectedFields)}
 
                     <Droppable droppableId="selected_option_1">
                         {(provided) => (

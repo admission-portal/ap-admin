@@ -1,22 +1,88 @@
 import { PageHeader, SelectFields } from '../../components/'
+import { useState } from 'react'
+import { notification } from 'antd'
 import './style.css'
+
+// Following are the initial templates for our states
+const ApplicationInitialState = {
+    title: '',
+    description: '',
+    branch: '',
+    stream: '',
+    fees: 1000,
+    lastDate: '',
+}
+const GlobalInitialState = {
+    "Personal Details": [],
+    "Ed-Level Details": [],
+    "Education/School Details": [],
+    "Entrance Exam": [],
+    "Document Uploads": [],
+    "Payment Modes": []
+}
 export default function GenerateApplication() {
+
+    const [ApplicationData, setApplicationData] = useState(ApplicationInitialState)
+    const [GlobalLabels, setGlobalLabels] = useState(GlobalInitialState)
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        console.log(ApplicationData);
+        console.log(GlobalLabels)
+
+        //TODO: API CALL HERE
+
+        // Rest form after submission
+        setApplicationData(ApplicationInitialState)
+        setGlobalLabels(GlobalInitialState)
+
+        // successFull creation generate NOTIFICATION with message
+        notification.open({
+            message: 'Application Generated !',
+            description:
+                'Application Genrated Successfully. To view te genrated application move to view application tab.',
+        });
+    }
 
     return (
         <div className="GenerateApplication">
             <PageHeader title="Generate Application" />
-            <form autoComplete="off">
-                <input type="text" id="title" name="title" placeholder="Enter Title" onChange={() => { }} required />
-                <input type="text" id="description" name="description" placeholder="Enter Description Here" onChange={() => { }} required />
-                <input type="text" id="Branch" name="Branch" placeholder="For Branch" onChange={() => { }} required />
-                <input type="text" id="stream" name="stream" placeholder="For stream" onChange={() => { }} required />
-                <input type="number" id="Fees" min={0} name="Fees" placeholder="Registration Fees" onChange={() => { }} required />
+            <form autoComplete="off" onSubmit={onSubmit} id="ApplicationForm">
+                <input0
+                    type="text" id="title" name="title" placeholder="Enter Title"
+                    value={ApplicationData.title}
+                    onChange={(e) => { setApplicationData({ ...ApplicationData, title: e.target.value }) }} required />
+
+                <input type="text" id="description" name="description"
+                    placeholder="Enter Description Here"
+                    value={ApplicationData.description}
+                    onChange={(e) => { setApplicationData({ ...ApplicationData, description: e.target.value }) }} required />
+
+                <input type="text" id="Branch" name="Branch" placeholder="For Branch"
+                    value={ApplicationData.branch}
+                    onChange={(e) => { setApplicationData({ ...ApplicationData, branch: e.target.value }) }} required />
+
+                <input type="text" id="stream" name="stream" placeholder="For stream"
+                    value={ApplicationData.stream}
+                    onChange={(e) => { setApplicationData({ ...ApplicationData, stream: e.target.value }) }} required />
+
+                <input type="number" id="Fees" min={0} name="Fees" placeholder="Registration Fees"
+                    value={ApplicationData.fees}
+                    onChange={(e) => { setApplicationData({ ...ApplicationData, fees: e.target.value }) }} required />
+
                 <div style={{ display: 'flex', alignItems: 'center', marginTop: '1.1em' }}>
                     <label htmlFor="DueDate">Last Date to fill form :</label><br />
-                    <input id="DueDate" type="date" style={{ marginLeft: '0.5em' }} onChange={() => { }} required />
+
+                    <input id="DueDate" type="date" style={{ marginLeft: '0.5em' }}
+                        value={ApplicationData.lastDate}
+                        onChange={(e) => { setApplicationData({ ...ApplicationData, lastDate: e.target.value }) }} required />
+
                 </div>
-                <SelectFields />
-                <input type="submit" value="Submit" />
+
+                <SelectFields GlobalLabels={GlobalLabels} setGlobalLabels={setGlobalLabels} />
+                <div className="Application_btn_container">
+                    <input type="submit" value="Generate" />
+                </div>
             </form>
         </div >
     )
