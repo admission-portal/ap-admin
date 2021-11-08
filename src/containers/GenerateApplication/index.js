@@ -6,7 +6,7 @@ import './style.css'
 
 // Following are the initial templates for our states
 const ApplicationInitialState = {
-    ApplicationID: 'TEST1234',
+    // ApplicationID: 'TEST1234',
     title: '',
     description: '',
     branch: '',
@@ -32,10 +32,14 @@ export default function GenerateApplication() {
         console.log(ApplicationData);
         console.log(GlobalLabels)
 
+        let temp = [...ApplicationData.title]
+        temp = 'APP-' + temp[0] + temp[1] + temp[2] + temp[temp.length - 3] + temp[temp.length - 2] + temp[temp.length - 1] + (Math.floor(Math.random(1) * 1000))
+
         //! API CALL HERE
         var data = JSON.stringify({
             ...ApplicationData,
-            GlobalLabels
+            GlobalLabels,
+            ApplicationID: `${temp}`,
         });
 
         var config = {
