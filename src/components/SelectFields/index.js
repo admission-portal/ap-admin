@@ -110,9 +110,9 @@ export default function SelectFields({ GlobalLabels, setGlobalLabels }) {
                 </Col>
             </Row>}
             {
-                AutoSelected !== true && data.map((item) => {
+                AutoSelected !== true && data.map((item,index) => {
                     return (
-                        <SelectFieldSection Labels={item.Labels} title={item.secTitle} GlobalLabels={GlobalLabels} setGlobalLabels={setGlobalLabels} />
+                        <SelectFieldSection Labels={item.Labels} title={item.secTitle} GlobalLabels={GlobalLabels} setGlobalLabels={setGlobalLabels} key={index}/>
                     )
                 })
             }

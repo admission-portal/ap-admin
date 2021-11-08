@@ -1,10 +1,12 @@
 import { PageHeader, SelectFields } from '../../components/'
 import { useState } from 'react'
 import { notification } from 'antd'
+import axios from 'axios'
 import './style.css'
 
 // Following are the initial templates for our states
 const ApplicationInitialState = {
+    ApplicationID: 'TEST1234',
     title: '',
     description: '',
     branch: '',
@@ -30,25 +32,51 @@ export default function GenerateApplication() {
         console.log(ApplicationData);
         console.log(GlobalLabels)
 
-        //TODO: API CALL HERE
-
-        // Rest form after submission
-        setApplicationData(ApplicationInitialState)
-        setGlobalLabels(GlobalInitialState)
-
-        // successFull creation generate NOTIFICATION with message
-        notification.open({
-            message: 'Application Generated !',
-            description:
-                'Application Genrated Successfully. To view te genrated application move to view application tab.',
+        //! API CALL HERE
+        var data = JSON.stringify({
+            ...ApplicationData,
+            GlobalLabels
         });
+
+        var config = {
+            method: 'post',
+            url: 'https://9qj3u7alhc.execute-api.us-east-1.amazonaws.com/s1/applications',
+            headers: {
+                'Authorization': `Bearer ${sessionStorage.getItem('id_token')}`,
+                'Content-Type': 'application/json'
+            },
+            data: data
+        };
+
+        axios(config)
+            .then(function (response) {
+                if (response.data == 200) {
+
+                    // successfull creation-> generate NOTIFICATION with message
+                    notification.open({
+                        message: 'Application Generated !',
+                        description:
+                            'Application Genrated Successfully. To view te genrated application move to view application tab.',
+                    });
+
+                    // Reset form after submission
+                    setApplicationData(ApplicationInitialState)
+                } else
+                    notification.open({
+                        message: 'Please try Again !',
+                    });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
     }
 
     return (
         <div className="GenerateApplication">
             <PageHeader title="Generate Application" />
             <form autoComplete="off" onSubmit={onSubmit} id="ApplicationForm">
-                <input0
+                <input
                     type="text" id="title" name="title" placeholder="Enter Title"
                     value={ApplicationData.title}
                     onChange={(e) => { setApplicationData({ ...ApplicationData, title: e.target.value }) }} required />
