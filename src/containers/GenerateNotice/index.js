@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import TextArea from 'rc-textarea'
 import { PageHeader } from '../../components'
-import { Checkbox } from 'antd'
+import { Checkbox, notification } from 'antd'
 import './style.css'
+import axios from 'axios'
 
 const NoticeInitialSate = {
     title: '',
@@ -22,7 +23,37 @@ export default function GenerateNotice() {
     const onSubmit = (e) => {
         e.preventDefault()
 
-        // TODO : API CALL HERE
+        //! API CALL HERE
+        var data = JSON.stringify({ NoticeID: "NOTICE" + (Math.floor(new Date().getTime() / 1000)) + Math.floor(Math.random(100)), ...NoticeData });
+
+        var config = {
+            method: 'post',
+            url: 'https://9qj3u7alhc.execute-api.us-east-1.amazonaws.com/s1/notices',
+            headers: {
+                'Authorization': `Bearer ${sessionStorage.getItem('id_token')}`,
+                'Content-Type': 'application/json'
+            },
+            data: data
+        };
+
+        axios(config)
+            .then(function (response) {
+                notification.open({
+                    message: 'Notice Generated !',
+                    description:
+                        'Notice Generated Successfully. To view te generated notice move to view notice tab.',
+                });
+                setNoticeData(NoticeInitialSate)
+            })
+            .catch(function (error) {
+                notification.open({
+                    message: 'Something Went Wrong !',
+                    description:
+                        'Please Try Again !',
+                });
+                console.log(error);
+            });
+
         console.log(NoticeData)
     }
     return (
