@@ -35,8 +35,10 @@ export default function SingleApplication() {
 
         axios(config)
             .then(function (response) {
-                if (response.data.status == 200)
+                if (response.data.status == 200) {
+                    temp = response.data.response
                     setSingleApplicationData(response.data.response)
+                }
                 console.log(response.data.response);
             })
             .catch(function (error) {
@@ -52,7 +54,7 @@ export default function SingleApplication() {
                 <Col span={24}>
                     <Tabs defaultActiveKey="1" onChange={() => { }} type="card" tabPosition="top" >
                         <TabPane tab="Details" key="1">
-                            <DetailsOfApplication />
+                            {SingleApplicationData &&<DetailsOfApplication detailsData={SingleApplicationData} />}
                         </TabPane>
 
                         <TabPane tab="Submitted Application" key="2">

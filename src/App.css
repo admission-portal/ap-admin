@@ -8,3 +8,7 @@
     min-height: 90vh;
     margin-top: 1.2em;
 }
+
+.ant-divider-horizontal{
+    margin: 0;
+}
