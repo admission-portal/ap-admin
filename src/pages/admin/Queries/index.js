@@ -52,7 +52,7 @@ export default function Queries() {
 
             <Col span={20}>
               <div className="myquery_TopTitle">
-                <Typography.Title level={2}>My Queries</Typography.Title>
+                <Typography.Title level={2}>Queries</Typography.Title>
               </div>
             </Col>
 
