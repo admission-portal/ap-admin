@@ -9,6 +9,7 @@ import {
   ProfileOutlined, PieChartOutlined, CalendarOutlined, QuestionOutlined,
 } from '@ant-design/icons';
 import { Applications, Calendar, Dashboard, Notices, Queries, } from './pages/admin/';
+import SingleApplication from './pages/admin/SingleApplication';
 
 const { Content } = Layout;
 
@@ -38,6 +39,7 @@ export default function Main() {
                 <ProtectedRoute path={`/adm/calendar`} component={Calendar} exact />
                 <ProtectedRoute path={`/adm/queries`} component={Queries} exact />
                 <ProtectedRoute path={`/adm/notices`} component={Notices} exact />
+                <ProtectedRoute path="/adm/applications/:ApplicationId" component={SingleApplication} />
                 {/* <Redirect to="/" /> */}
               </Switch>
             </Content>

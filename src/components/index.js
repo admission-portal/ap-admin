@@ -7,3 +7,5 @@ export { default as UpTrend } from './UpTrend/UpTrend';
 export { default as DownTrend } from './DownTrend/DownTrend';
 export { default as CustomTable } from './CustomTable';
 export { default as SelectFields } from './SelectFields';
+export { default as Subcard } from './Subcard';
+export { default as ApplicationCard } from './ApplicationCard';
