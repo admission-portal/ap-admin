@@ -8,9 +8,9 @@ import {Row} from 'antd'
 
 export default function DashboardCardContainer() {
   const cards_data = [
-    { title: 'Applications', value: '126', data: [15, 19, 12, 5, 2, 3, 15] },
-    { title: 'Payments', value: '70', data: [15, 12, 13, 5, 7, 3, 10] },
-    { title: 'Queries', value: '120', data: [6, 20, 13, 15, 10, 7, 2] },
+    { title: 'Applications', value: '30', data: [15, 19, 12, 5, 2, 3, 15] },
+    { title: 'Payments', value: '11', data: [15, 12, 13, 5, 7, 3, 10] },
+    { title: 'Queries', value: '15', data: [6, 20, 13, 15, 10, 7, 2] },
   ];
 
   return (

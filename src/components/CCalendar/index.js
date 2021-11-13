@@ -17,25 +17,21 @@ export default function CCalendar() {
         switch (value.date()) {
             case 8:
                 listData = [
-                    { type: 'warning', content: 'This is warning event.' },
-                    { type: 'success', content: 'This is usual event.' },
+                    { type: 'warning', content: 'Due Date Passed!' },
+                    { type: 'success', content: 'Successfully Submitted the BTECH Application' },
                 ];
                 break;
             case 10:
                 listData = [
-                    { type: 'warning', content: 'This is warning event.' },
-                    { type: 'success', content: 'This is usual event.' },
-                    { type: 'error', content: 'This is error event.' },
+                    { type: 'warning', content: 'Payment Remaining' },
+                    { type: 'success', content: 'Marksheet Uploaded in MBA application' },
                 ];
                 break;
             case 15:
                 listData = [
-                    { type: 'warning', content: 'This is warning event' },
-                    { type: 'success', content: 'This is very long usual event。。....' },
-                    { type: 'error', content: 'This is error event 1.' },
-                    { type: 'error', content: 'This is error event 2.' },
-                    { type: 'error', content: 'This is error event 3.' },
-                    { type: 'error', content: 'This is error event 4.' },
+                    { type: 'warning', content: 'BSc Application is out now !' },
+                    { type: 'warning', content: 'Something New in Notices' },
+
                 ];
                 break;
             default:

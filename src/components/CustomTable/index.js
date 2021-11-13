@@ -8,7 +8,7 @@ import './style.css'
 const data = [
     {
         key: '1',
-        name: 'John Brown',
+        name: 'Tejas Ladhani',
         branch: 'IT',
         institute: 'DEPSTAR',
         feesPaid:'Not Paid',
@@ -16,7 +16,7 @@ const data = [
     },
     {
         key: '2',
-        name: 'Joe Black',
+        name: 'Shrey Sharma',
         branch: 'CE',
         institute: 'CSPIT',
         feesPaid:'Paid',
@@ -24,7 +24,7 @@ const data = [
     },
     {
         key: '3',
-        name: 'Joe Black',
+        name: 'Radhika Tiwari',
         branch: 'CE',
         institute: 'CSPIT',
         feesPaid:'Paid',
@@ -32,7 +32,7 @@ const data = [
     },
     {
         key: '4',
-        name: 'Joe Black',
+        name: 'Rekha Popat',
         branch: 'CE',
         institute: 'CSPIT',
         feesPaid:'Paid',
@@ -40,7 +40,7 @@ const data = [
     },
     {
         key: '5',
-        name: 'Joe Black',
+        name: 'Ravi Karia',
         branch: 'CE',
         institute: 'CSPIT',
         feesPaid:'Paid',
@@ -48,7 +48,7 @@ const data = [
     },
     {
         key: '6',
-        name: 'Jim Green',
+        name: 'Megha Man',
         branch: 'ME',
         institute: 'CSPIT',
         feesPaid:'Paid',
@@ -56,7 +56,7 @@ const data = [
     },
     {
         key: '7',
-        name: 'Jim Green',
+        name: 'Rohan Bangoriya',
         branch: 'ME',
         institute: 'CSPIT',
         feesPaid:'Paid',
@@ -64,7 +64,7 @@ const data = [
     },
     {
         key: '8',
-        name: 'Jim Green',
+        name: 'Sameer Wangdu',
         branch: 'ME',
         institute: 'CSPIT',
         feesPaid:'Paid',
@@ -72,7 +72,7 @@ const data = [
     },
     {
         key: '9',
-        name: 'Jim Green',
+        name: 'Omshree Okhani',
         branch: 'ME',
         institute: 'CSPIT',
         feesPaid:'Paid',
@@ -80,7 +80,7 @@ const data = [
     },
     {
         key: '10',
-        name: 'Jim Green',
+        name: 'shreyansh Bhagat',
         branch: 'ME',
         institute: 'CSPIT',
         feesPaid:'Paid',
@@ -88,7 +88,7 @@ const data = [
     },
     {
         key: '11',
-        name: 'Jim Red',
+        name: 'Ranchit Sharma',
         branch: 'ME',
         institute: 'CSPIT',
         feesPaid:'Not Paid',

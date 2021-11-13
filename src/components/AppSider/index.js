@@ -39,10 +39,10 @@ function AppSider({ data, haveSubMenu, isCollapsible }) {
                 {
                     haveSubMenu === true ?
                         <SubMenu key="sub3" icon={<NotificationOutlined />} title="Notifications">
-                            <Menu.Item key="9">notice1</Menu.Item>
-                            <Menu.Item key="10">notice2</Menu.Item>
-                            <Menu.Item key="11">notice3</Menu.Item>
-                            <Menu.Item key="12">notice4</Menu.Item>
+                            <Menu.Item key="9">New in Queries !</Menu.Item>
+                            <Menu.Item key="10">Application Generated !</Menu.Item>
+                            <Menu.Item key="11">No. Of Students Increasing !</Menu.Item>
+                            <Menu.Item key="12">Notice Generated !</Menu.Item>
                         </SubMenu>
                         :
                         <></>
