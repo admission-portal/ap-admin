@@ -22,14 +22,6 @@ export default function ApplicationCard({ title, subCardData }) {
                         subCardData.map((data) => <Subcard data={data} />)
                     }
                 </div>
-                {/*  
-                 <div className="ApplicationCard_Details_DownloadPanel">
-                     <ApplicationDownloadPanel />
-                 </div>
- 
-                 <div className="ApplicationCard_stepsContainer">
-                     <ApplicationSteps />
-                 </div> */}
             </div>
         </div>
     )

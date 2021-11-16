@@ -13,6 +13,7 @@ const ApplicationInitialState = {
     stream: '',
     fees: 1000,
     lastDate: '',
+    submittedApplications:[]
 }
 const GlobalInitialState = {
     "Personal Details": [],

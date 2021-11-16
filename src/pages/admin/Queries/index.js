@@ -15,6 +15,7 @@ export default function Queries() {
   const [user, setUser] = useContext(UserContext);
   const userData = JSON.parse(user);
   const [QueryList, setQueryList] = useState()
+  const [forReplyText, setforReplyText] = useState()
   const [countUpdate, setcountUpdate] = useState(0)
 
 
@@ -61,7 +62,7 @@ export default function Queries() {
                 <TabPane tab="All Queries" key={tabkey++}>
                   <Row>
                     <Col span={24}>
-                      {QueryList !== undefined ? QueryList.map(data => <QueryCard queryCarddata={data} />) : <div />}
+                      {QueryList !== undefined ? QueryList.map(data => <QueryCard queryCarddata={data}  />) : <div />}
                     </Col>
                   </Row>
                 </TabPane>
@@ -69,7 +70,7 @@ export default function Queries() {
                 <TabPane tab="Solved" key={tabkey++}>
                   <Row>
                     <Col span={24}>
-                      {QueryList !== undefined ? QueryList.map(data => data.querystatus.status ? <QueryCard queryCarddata={data} /> : <div />) : <div />}
+                      {QueryList !== undefined ? QueryList.map(data => data.querystatus.status ? <QueryCard queryCarddata={data}  /> : <div />) : <div />}
                     </Col>
                   </Row>
                 </TabPane>
@@ -77,7 +78,7 @@ export default function Queries() {
                 <TabPane tab="Pending" key={tabkey++}>
                   <Row>
                     <Col span={24}>
-                      {QueryList !== undefined ? QueryList.map(data => data.querystatus.status ? null : <QueryCard queryCarddata={data} />) : <div />}
+                      {QueryList !== undefined ? QueryList.map(data => data.querystatus.status ? null : <QueryCard queryCarddata={data}  />) : <div />}
                     </Col>
                   </Row>
                 </TabPane>
