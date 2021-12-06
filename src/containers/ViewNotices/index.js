@@ -9,8 +9,8 @@ import { customTableColumnsData } from './data'
 
 export default function ViewNotices() {
     const [Notices, setNotices] = useState()
-    const [stateDelete, setStateDelete] = useState(false)
-    // const [IsLoading, setIsLoading] = useState(true)
+
+    const [idToBeDeleted, setidToBeDeleted] = useState('')    // const [IsLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
 
@@ -56,7 +56,7 @@ export default function ViewNotices() {
             .then(function (response) {
                 if (response.ResponseMetadata.HTTPStatusCode === 200) {
                     // after delete behaviour
-                    setStateDelete(!stateDelete)
+                    // setStateDelete(!stateDelete)
                 }
             })
             .catch(function (error) {
@@ -68,6 +68,12 @@ export default function ViewNotices() {
     return (
         <div className="ViewNotices">
             <PageHeader title="View Notices" />
+            <Row sm={24} md={12} lg={6} xl={6} gutter={24}>
+                <form onSubmit={(e) => { e.preventDefault(); deleteNotice(idToBeDeleted) }}>
+                    <input  style={{width:'20em'}} type="text" placeholder="Enter ID of Notice to be deleted " required value={idToBeDeleted } onChange={(e) => {setidToBeDeleted(e.target.value) }} />
+                    <input type="submit" value="Delete" />
+                </form>
+            </Row>
             <Row sm={24} md={12} lg={6} xl={6} gutter={24}>
                 <Col>
                     {Notices != undefined &&
