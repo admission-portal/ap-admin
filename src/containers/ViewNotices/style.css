@@ -1,0 +1,5 @@
+.ViewNotices .ant-table-cell {
+    text-overflow:clip;
+    /* justify-content: center;
+    align-items: center; */
+}

@@ -3,6 +3,7 @@ import { DashboardCardContainer } from '../../../containers'
 import { CustomTable, PageHeader } from '../../../components'
 import { Row, Col, Typography } from 'antd'
 import PieChart from '../../../helpers/charts/PieChart'
+import { customTableData, customTableColumnsData } from './data'
 
 export default function Dashboard() {
     return (
@@ -13,7 +14,7 @@ export default function Dashboard() {
                 <Col md={14} lg={14} sm={24}>
                     <div className="TABLE_Container" style={{ margin: '1.2em 1.4em' }}>
                         <Typography.Title level={5} style={{ marginBottom: '1.1em' }}>Recent Applicants</Typography.Title>
-                        <CustomTable />
+                        <CustomTable data={customTableData} customTableColumnsData={customTableColumnsData} />
                     </div>
                 </Col>
                 <Col md={10} lg={10} sm={24}>

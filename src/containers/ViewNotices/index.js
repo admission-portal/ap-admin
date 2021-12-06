@@ -1,14 +1,15 @@
-import { PageHeader } from '../../components'
+import { CustomTable, PageHeader } from '../../components'
 import { Row, Col } from 'antd'
-import { Skeleton, Switch, Card, Avatar } from 'antd';
-import { EditOutlined, EllipsisOutlined, DeleteOutlined } from '@ant-design/icons';
+// import { Skeleton, Switch, Card, Avatar } from 'antd';
+// import { EditOutlined, EllipsisOutlined, DeleteOutlined } from '@ant-design/icons';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './style.css'
-const { Meta } = Card;
+import { customTableColumnsData } from './data'
 
 export default function ViewNotices() {
     const [Notices, setNotices] = useState()
+    const [stateDelete, setStateDelete] = useState(false)
     // const [IsLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
@@ -35,33 +36,44 @@ export default function ViewNotices() {
             });
 
     }, [])
+    // Onclick Function for Notice Delete
+    const deleteNotice = (id) => {
+        var data = JSON.stringify({
+            "id": id
+        });
+
+        var config = {
+            method: 'delete',
+            url: 'https://9qj3u7alhc.execute-api.us-east-1.amazonaws.com/s1/notices',
+            headers: {
+                'Authorization': `Bearer ${sessionStorage.getItem('id_token')}`,
+                'Content-Type': 'application/json'
+            },
+            data: data
+        };
+
+        axios(config)
+            .then(function (response) {
+                if (response.ResponseMetadata.HTTPStatusCode === 200) {
+                    // after delete behaviour
+                    setStateDelete(!stateDelete)
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        // console.log("clicked")
+    }
+
     return (
         <div className="ViewNotices">
             <PageHeader title="View Notices" />
             <Row sm={24} md={12} lg={6} xl={6} gutter={24}>
-                {Notices != undefined &&
-                    Notices.map((item, index) =>
-                        <Col key={index}>
-                            <Card
-                                style={{ width: 300, marginTop: 16 }}
-                                actions={[
-                                    <EditOutlined key="edit" />,
-                                    <DeleteOutlined key="delete" />,
-                                    <EllipsisOutlined key="ellipsis" />,
-                                ]}
-                                // hoverable
-                                extra={item.NoticeID}
-                            >
-                                <Skeleton loading={false} avatar active>
-                                    <Meta
-                                        title={item.title}
-                                        description={<>{item.description}</>}
-                                    />
-                                </Skeleton>
-                            </Card>
-                        </Col>
-                    )}
-
+                <Col>
+                    {Notices != undefined &&
+                        <CustomTable data={Notices} customTableColumnsData={customTableColumnsData} />
+                    }
+                </Col>
             </Row>
         </div>
     )
