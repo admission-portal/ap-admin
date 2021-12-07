@@ -7,7 +7,7 @@ import axios from 'axios';
 import './style.css'
 import { customTableColumnsData } from './data'
 
-export default function ViewNotices() {
+export default function ViewNotices({ tempState }) {
     const [Notices, setNotices] = useState([])
 
     const [idToBeDeleted, setidToBeDeleted] = useState('')    // const [IsLoading, setIsLoading] = useState(true)
@@ -37,7 +37,7 @@ export default function ViewNotices() {
                 console.log(error);
             });
 
-    }, [])
+    }, [tempState])
 
     // Onclick Function for Notice Delete
     const deleteNotice = (id) => {

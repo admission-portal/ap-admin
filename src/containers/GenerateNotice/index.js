@@ -18,7 +18,7 @@ const NoticeInitialSate = {
     stream: ''
 }
 
-export default function GenerateNotice() {
+export default function GenerateNotice({tempState,settempState}) {
     const [NoticeData, setNoticeData] = useState(NoticeInitialSate)
     const onSubmit = (e) => {
         e.preventDefault()
@@ -43,6 +43,8 @@ export default function GenerateNotice() {
                     description:
                         'Notice Generated Successfully. To view te generated notice move to view notice tab.',
                 });
+                // just to remount the viewNotice Component , changing the state which is attached to Notice page
+                settempState(tempState+1)
                 setNoticeData(NoticeInitialSate)
             })
             .catch(function (error) {
