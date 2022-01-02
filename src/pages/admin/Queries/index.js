@@ -25,7 +25,6 @@ export default function Queries() {
       method: 'get',
       url: `https://m3j6kmp129.execute-api.us-east-1.amazonaws.com/d1/studentqueries?email=${userData['email']}`,
       headers: {
-        'email': userData['email'],
         'Authorization': sessionStorage.getItem('id_token') ? sessionStorage.getItem('id_token') : '',
       }
     };
