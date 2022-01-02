@@ -45,7 +45,7 @@ export default function GenerateApplication() {
 
         var config = {
             method: 'post',
-            url: 'https://9qj3u7alhc.execute-api.us-east-1.amazonaws.com/s1/applications',
+            url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/applications',
             headers: {
                 'Authorization': `Bearer ${sessionStorage.getItem('id_token')}`,
                 'Content-Type': 'application/json'
