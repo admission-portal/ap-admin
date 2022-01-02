@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Typography, Row, Col, Card, Divider } from "antd";
 import { CheckSquareOutlined, EditOutlined, CloseSquareOutlined, DeleteOutlined } from '@ant-design/icons'
 import './style.css';
-export default function QueryCard({ queryCarddata }) {
+export default function QueryCard({ queryCarddata, email }) {
   const [Reply, setReply] = useState(false)
   const [ReplyTextData, setReplyTextData] = useState('')
 
@@ -16,16 +16,27 @@ export default function QueryCard({ queryCarddata }) {
     <div className="querycard">
       <Card size="small">
         <Row>
-
-          <Col md={10}>
+          <Col md={20}>
             <Typography.Title level={5}>
               {queryCarddata.subject}
             </Typography.Title>
           </Col>
-          <Col md={2}>
+          <Col md={4}>
             <Typography.Title level={5}>
-              Id : {queryCarddata.queryid}
+              Reply : <EditOutlined style={{ fontSize: '1.2em' }} onClick={() => setReply(!Reply)} />
             </Typography.Title>
+          </Col>
+          <Col md={24}>
+            <Typography.Text>Description : {queryCarddata.querydesc}</Typography.Text>
+          </Col>
+
+        </Row>
+        <Row>
+
+          <Col md={5}>
+            <Typography.Text >
+              Id : {email}
+            </Typography.Text>
           </Col>
           <Col md={4}>
             <Typography.Text>Status: </Typography.Text>
@@ -36,23 +47,14 @@ export default function QueryCard({ queryCarddata }) {
           <Col md={4}>
             {queryCarddata.querystatus.tag == "Solved" ? <>Unresolve :<CloseSquareOutlined /></> : <>Resolve : <CheckSquareOutlined /></>}
           </Col>
-          <Col md={4}>
-            <Typography.Title level={5}>
-              Reply : <EditOutlined style={{ fontSize: '1.2em' }} onClick={() => setReply(!Reply)} />
-            </Typography.Title>
-          </Col>
-        </Row>
 
-        <Row>
-          <Col md={10}>
-            <Typography.Text>{queryCarddata.querydesc}</Typography.Text>
-          </Col>
+
           <Col md={2}>
             <Typography.Text level={5}>
               {queryCarddata.querydate}
             </Typography.Text>
           </Col>
-          <Col md={4}>
+          <Col md={5}>
           </Col>
           <Col md={4}>
             Delete : <DeleteOutlined />

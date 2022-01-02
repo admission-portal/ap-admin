@@ -23,17 +23,17 @@ export default function Queries() {
     // TODO : here the data is of specifi student , we need all queries. make new lambda /API EP
     var config = {
       method: 'get',
-      url: `https://0icg981cjj.execute-api.us-east-1.amazonaws.com/d1/studentqueries?email=${userData['email']}`,
+      url: `https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/queries/`,
       headers: {
-        'email': userData['email'],
         'Authorization': sessionStorage.getItem('id_token') ? sessionStorage.getItem('id_token') : '',
+        
       }
     };
 
     axios(config)
       .then(function (response) {
-        console.log(response)
-        setQueryList(response.data.response.queries)
+        console.log(response.data.body)
+        setQueryList(response.data.body)
       })
       .catch(function (error) {
         console.log(error);
@@ -62,7 +62,7 @@ export default function Queries() {
                 <TabPane tab="All Queries" key={tabkey++}>
                   <Row>
                     <Col span={24}>
-                      {QueryList !== undefined ? QueryList.map(data => <QueryCard queryCarddata={data}  />) : <div />}
+                      {QueryList !== undefined && QueryList.map(({email,queries}) => queries.map((data)=><QueryCard queryCarddata={data} email={email} />) )}
                     </Col>
                   </Row>
                 </TabPane>
@@ -70,7 +70,7 @@ export default function Queries() {
                 <TabPane tab="Solved" key={tabkey++}>
                   <Row>
                     <Col span={24}>
-                      {QueryList !== undefined ? QueryList.map(data => data.querystatus.status ? <QueryCard queryCarddata={data}  /> : <div />) : <div />}
+                    {QueryList !== undefined && QueryList.map(({email,queries}) => queries.map((data)=>data.querystatus.status ?<QueryCard queryCarddata={data} email={email} />:<></>) )}
                     </Col>
                   </Row>
                 </TabPane>
@@ -78,7 +78,7 @@ export default function Queries() {
                 <TabPane tab="Pending" key={tabkey++}>
                   <Row>
                     <Col span={24}>
-                      {QueryList !== undefined ? QueryList.map(data => data.querystatus.status ? null : <QueryCard queryCarddata={data}  />) : <div />}
+                    {QueryList !== undefined && QueryList.map(({email,queries}) => queries.map((data)=>!data.querystatus.status ?<QueryCard queryCarddata={data} email={email} />:<></>) )}
                     </Col>
                   </Row>
                 </TabPane>
