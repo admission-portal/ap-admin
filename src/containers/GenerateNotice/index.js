@@ -28,7 +28,7 @@ export default function GenerateNotice({tempState,settempState}) {
 
         var config = {
             method: 'post',
-            url: 'https://9qj3u7alhc.execute-api.us-east-1.amazonaws.com/s1/notices',
+            url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/notices',
             headers: {
                 'Authorization': `Bearer ${sessionStorage.getItem('id_token')}`,
                 'Content-Type': 'application/json'

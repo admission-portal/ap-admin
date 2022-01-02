@@ -18,7 +18,7 @@ export default function ViewNotices({ tempState }) {
 
         var config = {
             method: 'get',
-            url: 'https://9qj3u7alhc.execute-api.us-east-1.amazonaws.com/s1/notices',
+            url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/notices',
             headers: {
                 'Authorization': `Bearer ${sessionStorage.getItem('id_token')}`
             }
@@ -47,7 +47,7 @@ export default function ViewNotices({ tempState }) {
 
         var config = {
             method: 'delete',
-            url: 'https://9qj3u7alhc.execute-api.us-east-1.amazonaws.com/s1/notices',
+            url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/notices',
             headers: {
                 'Authorization': `Bearer ${sessionStorage.getItem('id_token')}`,
                 'Content-Type': 'application/json'

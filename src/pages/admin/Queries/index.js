@@ -23,7 +23,7 @@ export default function Queries() {
     // TODO : here the data is of specifi student , we need all queries. make new lambda /API EP
     var config = {
       method: 'get',
-      url: `https://m3j6kmp129.execute-api.us-east-1.amazonaws.com/d1/studentqueries?email=${userData['email']}`,
+      url: `https://0icg981cjj.execute-api.us-east-1.amazonaws.com/d1/studentqueries?email=${userData['email']}`,
       headers: {
         'email': userData['email'],
         'Authorization': sessionStorage.getItem('id_token') ? sessionStorage.getItem('id_token') : '',
