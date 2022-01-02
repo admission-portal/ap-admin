@@ -1,5 +1,5 @@
 import "./style.css";
-import { Layout, Row, Tabs, Col, Modal, Typography, Button } from "antd";
+import { Layout, Row, Tabs, Col, Modal, Typography, Button,Spin,Skeleton } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { useHistory, BrowserRouter } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
@@ -62,7 +62,7 @@ export default function Queries() {
                 <TabPane tab="All Queries" key={tabkey++}>
                   <Row>
                     <Col span={24}>
-                      {QueryList !== undefined && QueryList.map(({email,queries}) => queries.map((data)=><QueryCard queryCarddata={data} email={email} />) )}
+                      {QueryList !== undefined ? QueryList.map(({email,queries}) => queries.map((data)=><QueryCard queryCarddata={data} email={email} />  ) ):   <Skeleton active />}
                     </Col>
                   </Row>
                 </TabPane>

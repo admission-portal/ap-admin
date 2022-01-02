@@ -1,5 +1,5 @@
 import { CustomTable, PageHeader } from '../../components'
-import { Row, Col } from 'antd'
+import { Row, Col,Skeleton } from 'antd'
 // import { Skeleton, Switch, Card, Avatar } from 'antd';
 // import { EditOutlined, EllipsisOutlined, DeleteOutlined } from '@ant-design/icons';
 import { useState, useEffect } from 'react';

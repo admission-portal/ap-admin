@@ -1,7 +1,7 @@
 import { ApplicationCard, PageHeader } from "../../components";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Row, Col } from 'antd'
+import { Row, Col,Spin } from 'antd'
 export default function ViewApplication() {
     const [Details, setDetails] = useState([])
 
@@ -34,7 +34,7 @@ export default function ViewApplication() {
             <Row>
                 <Col span={24}>
                     {
-                        Details.length !== 0 &&
+                        Details==''?<Spin/>:Details.length !== 0 &&
                         Details.map((item, index) =>
                             <ApplicationCard
                                 key={index}
