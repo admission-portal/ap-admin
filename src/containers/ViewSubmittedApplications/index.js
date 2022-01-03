@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CustomTable, PageHeader } from "../../components";
 import axios from "axios";
-
+import {customTableColumnsData,customTableData} from "./data";
 export default function ViewSubmittedApplications() {
   const [data, setdata] = useState({});
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function ViewSubmittedApplications() {
   return (
     <div>
       <PageHeader title="Submitted Applications" />
-      <CustomTable />
+      <CustomTable data={customTableData} customTableColumnsData={customTableColumnsData}/>
     </div>
   );
 }
