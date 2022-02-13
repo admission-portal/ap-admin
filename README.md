@@ -1,5 +1,29 @@
 # ap-admin
 Contains the application which will be used by the Administrator of the University, to manage their admission process.
+
+# Structure
+Our App basically have three types of components named **component** which can be defined probably as the smallest reusable components being utilized or used by other two types,**containers** are the components that utilizes the the first type of components and the last one are **Page** components, that *mostly* use the component of other two types.
+
+1. **Components :**
+     contains all the components that are being utilized by one or more containers or pages present in the ```src/containers``` and ```src/pages```.
+
+2. **Containers :**
+     This has the components which utilizes components and will itself get utilized by the pages' component
+
+3. **Contexts :**
+Contains the context used by the different components of the application. Also, this solves the problem of prop drilling
+
+4. **Helper :**
+    contains ```/charts```, which have Bar, line and Pie(doughnut) charts. Which is being utilized by 
+    
+6. **Pages :**
+   These are the main fully visible components of the build version of the app, which utilizes the components & containers. Can be also understood as *Views*
+
+7. **Routes :**
+    contains  ```ProtectedRoute.js```, which protects the required components from unauthenticated users, that means ,unauthenticated users can not access those components. 
+
+
+
 ## Set Up the Dev Env :
 To get started with the setup , you must have NodeJS(LTS) installed in your Local machine.
 
