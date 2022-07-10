@@ -1,6 +1,6 @@
 import './style.css';
 import React from 'react';
-import { LogoutOutlined } from '@ant-design/icons';
+// import { LogoutOutlined } from '@ant-design/icons';
 import { Layout } from 'antd';
 
 /**
@@ -16,7 +16,8 @@ function AppHeader() {
   return (
     <Header className="site-layout-background Header">
       <div className="logout">
-        <LogoutOutlined />
+        <span> 👨‍🎓 ad</span>
+        <span>MISSION</span>
       </div>
     </Header>
   );
