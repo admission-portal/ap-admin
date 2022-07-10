@@ -1,6 +1,7 @@
-
-import {DownTrend, UpTrend} from '..';
-import {Col,Typography} from 'antd'
+/* eslint-disable react/destructuring-assignment */
+import React from 'react';
+import { Col, Typography } from 'antd';
+import { DownTrend, UpTrend } from '..';
 import LineChart from '../../helpers/charts/LineChart';
 import './style.css';
 
@@ -8,7 +9,7 @@ export default function DashboardCard(value) {
   const { data } = value.value;
   const isDown = data[data.length - 1] < data[data.length - 2];
   return (
-      <Col md={8} lg={8} sm={24}>
+    <Col md={8} lg={8} sm={24}>
       <div className="Main__Top__card shadow ">
         <div className="DashboardCard__TitleChart_Container">
           <div className="DashboardCard__Title">

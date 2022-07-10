@@ -1,4 +1,5 @@
-import {  Doughnut, Pie } from 'react-chartjs-2';
+import React from 'react';
+import { Doughnut } from 'react-chartjs-2';
 
 function PieChart() {
   return (
@@ -10,7 +11,7 @@ function PieChart() {
             cutout: '60%',
             label: 'no of applicants',
             data: [45, 120, 10],
-            backgroundColor: ['rgba(178, 255, 255, 0.52)', 'rgba(12, 175, 255, 0.52)','rgba(0, 118, 206, 0.52)'],
+            backgroundColor: ['rgba(178, 255, 255, 0.52)', 'rgba(12, 175, 255, 0.52)', 'rgba(0, 118, 206, 0.52)'],
           }],
 
       }}

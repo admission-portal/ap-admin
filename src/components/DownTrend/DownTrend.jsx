@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable max-len */
 import React from 'react';
 
 export default function DownTrend({ className, style }) {

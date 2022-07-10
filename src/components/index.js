@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 export { default as AppHeader } from './AppHeader';
 export { default as AppSider } from './AppSider';
 export { default as AppFooter } from './AppFooter';

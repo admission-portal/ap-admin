@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-props-no-spreading */
 import { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { UserContext } from '../contexts/user';
+import React, { UserContext } from '../contexts/user';
 
-const ProtectedRoute = ({ component: RouteComponent, ...rest }) => {
+function ProtectedRoute({ component: RouteComponent, ...rest }) {
   const [user] = useContext(UserContext);
 
   return (
@@ -11,6 +13,6 @@ const ProtectedRoute = ({ component: RouteComponent, ...rest }) => {
       render={(routeProps) => (user ? (<RouteComponent {...routeProps} />) : (<Redirect to="/" />))}
     />
   );
-};
+}
 
 export default ProtectedRoute;

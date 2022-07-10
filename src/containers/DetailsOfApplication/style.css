@@ -1,6 +1,7 @@
-.DetailsOfApplication{
-   margin-left: 1.2em;
+.DetailsOfApplication {
+    margin-left: 1.2em;
 }
+
 .DetailsOfApplication input[type=text] {
     width: 65vw;
     padding: 0.6em;
@@ -38,14 +39,15 @@
     box-sizing: border-box;
 }
 
-.Application_btn_container{
+.Application_btn_container {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
 }
+
 .Application_btn_container input[type=submit],
-.Application_btn_container input[type=button]{
+.Application_btn_container input[type=button] {
     margin-top: 0.7em;
     margin-right: 0.4em;
     padding: 0.6em 1em;

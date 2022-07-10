@@ -1,9 +1,11 @@
-
+/* eslint-disable react/prop-types */
+import React from 'react';
 import { Line } from 'react-chartjs-2';
 
 export default function CustomLineChart({ chartData }) {
   const typeName = chartData.type;
-  const xAxisLabels = chartData.lines[0].data !== undefined ? Object.keys(chartData.lines[0].data) : [];
+  const xAxisLabels = chartData.lines[0].data !== undefined
+    ? Object.keys(chartData.lines[0].data) : [];
 
   const datasets = chartData.lines.map((line) => {
     const data = {
