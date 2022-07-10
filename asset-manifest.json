@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/ap-admin/static/css/main.42d0d258.chunk.css",
-    "main.js": "/ap-admin/static/js/main.928c08f7.chunk.js",
-    "main.js.map": "/ap-admin/static/js/main.928c08f7.chunk.js.map",
-    "runtime-main.js": "/ap-admin/static/js/runtime-main.d25415bd.js",
-    "runtime-main.js.map": "/ap-admin/static/js/runtime-main.d25415bd.js.map",
-    "static/css/2.a95be28f.chunk.css": "/ap-admin/static/css/2.a95be28f.chunk.css",
-    "static/js/2.9fa0376f.chunk.js": "/ap-admin/static/js/2.9fa0376f.chunk.js",
-    "static/js/2.9fa0376f.chunk.js.map": "/ap-admin/static/js/2.9fa0376f.chunk.js.map",
-    "static/js/3.3a51d362.chunk.js": "/ap-admin/static/js/3.3a51d362.chunk.js",
-    "static/js/3.3a51d362.chunk.js.map": "/ap-admin/static/js/3.3a51d362.chunk.js.map",
+    "main.css": "/ap-admin/static/css/main.60a379a1.chunk.css",
+    "main.js": "/ap-admin/static/js/main.3912f66b.chunk.js",
+    "main.js.map": "/ap-admin/static/js/main.3912f66b.chunk.js.map",
+    "runtime-main.js": "/ap-admin/static/js/runtime-main.170e9481.js",
+    "runtime-main.js.map": "/ap-admin/static/js/runtime-main.170e9481.js.map",
+    "static/css/2.adf0d68f.chunk.css": "/ap-admin/static/css/2.adf0d68f.chunk.css",
+    "static/js/2.167fe567.chunk.js": "/ap-admin/static/js/2.167fe567.chunk.js",
+    "static/js/2.167fe567.chunk.js.map": "/ap-admin/static/js/2.167fe567.chunk.js.map",
+    "static/js/3.23984083.chunk.js": "/ap-admin/static/js/3.23984083.chunk.js",
+    "static/js/3.23984083.chunk.js.map": "/ap-admin/static/js/3.23984083.chunk.js.map",
     "index.html": "/ap-admin/index.html",
-    "static/css/2.a95be28f.chunk.css.map": "/ap-admin/static/css/2.a95be28f.chunk.css.map",
-    "static/css/main.42d0d258.chunk.css.map": "/ap-admin/static/css/main.42d0d258.chunk.css.map",
-    "static/js/2.9fa0376f.chunk.js.LICENSE.txt": "/ap-admin/static/js/2.9fa0376f.chunk.js.LICENSE.txt",
-    "static/js/main.928c08f7.chunk.js.LICENSE.txt": "/ap-admin/static/js/main.928c08f7.chunk.js.LICENSE.txt"
+    "static/css/2.adf0d68f.chunk.css.map": "/ap-admin/static/css/2.adf0d68f.chunk.css.map",
+    "static/css/main.60a379a1.chunk.css.map": "/ap-admin/static/css/main.60a379a1.chunk.css.map",
+    "static/js/2.167fe567.chunk.js.LICENSE.txt": "/ap-admin/static/js/2.167fe567.chunk.js.LICENSE.txt",
+    "static/js/main.3912f66b.chunk.js.LICENSE.txt": "/ap-admin/static/js/main.3912f66b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.d25415bd.js",
-    "static/css/2.a95be28f.chunk.css",
-    "static/js/2.9fa0376f.chunk.js",
-    "static/css/main.42d0d258.chunk.css",
-    "static/js/main.928c08f7.chunk.js"
+    "static/js/runtime-main.170e9481.js",
+    "static/css/2.adf0d68f.chunk.css",
+    "static/js/2.167fe567.chunk.js",
+    "static/css/main.60a379a1.chunk.css",
+    "static/js/main.3912f66b.chunk.js"
   ]
 }
