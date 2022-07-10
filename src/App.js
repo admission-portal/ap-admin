@@ -16,7 +16,7 @@ function App() {
         <Switch>
           <ProtectedRoute path="/adm/" component={Main} exact />
           <Route path="/ap-admin" component={Landing} exact />
-          <Route path="/interm" component={Intermediate} exact />
+          <Route path="/ap-admin/interm" component={Intermediate} exact />
           <Redirect to="/" />
         </Switch>
       </UserContextProvider>
