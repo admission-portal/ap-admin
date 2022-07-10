@@ -3,7 +3,7 @@ import React from 'react';
 import { AppHeader } from '../../../components';
 
 export default function Landing() {
-  const hostedUI = `https://handlemyadmissionsforadmin.auth.us-east-1.amazoncognito.com/login?client_id=7pcvc94m5cq87qbdkpdlj40qho&response_type=token&scope=email+phone+openid+aws.cognito.signin.user.admin+profile&redirect_uri=http://${window.location.host}/Interm/`;
+  const hostedUI = `https://handlemyadmissionsforadmin.auth.us-east-1.amazoncognito.com/login?client_id=7pcvc94m5cq87qbdkpdlj40qho&response_type=token&scope=email+phone+openid+aws.cognito.signin.user.admin+profile&redirect_uri=https://${window.location.host}/Interm/`;
   return (
     <div className="Landing">
       <AppHeader />
