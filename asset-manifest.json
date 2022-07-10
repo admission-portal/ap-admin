@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ap-admin/static/css/main.d060c006.chunk.css",
-    "main.js": "/ap-admin/static/js/main.8426af0c.chunk.js",
-    "main.js.map": "/ap-admin/static/js/main.8426af0c.chunk.js.map",
+    "main.css": "/ap-admin/static/css/main.4a56bdd9.chunk.css",
+    "main.js": "/ap-admin/static/js/main.76184625.chunk.js",
+    "main.js.map": "/ap-admin/static/js/main.76184625.chunk.js.map",
     "runtime-main.js": "/ap-admin/static/js/runtime-main.de496429.js",
     "runtime-main.js.map": "/ap-admin/static/js/runtime-main.de496429.js.map",
     "static/css/2.adf0d68f.chunk.css": "/ap-admin/static/css/2.adf0d68f.chunk.css",
@@ -12,15 +12,15 @@
     "static/js/3.860611cc.chunk.js.map": "/ap-admin/static/js/3.860611cc.chunk.js.map",
     "index.html": "/ap-admin/index.html",
     "static/css/2.adf0d68f.chunk.css.map": "/ap-admin/static/css/2.adf0d68f.chunk.css.map",
-    "static/css/main.d060c006.chunk.css.map": "/ap-admin/static/css/main.d060c006.chunk.css.map",
+    "static/css/main.4a56bdd9.chunk.css.map": "/ap-admin/static/css/main.4a56bdd9.chunk.css.map",
     "static/js/2.ab6e6e3c.chunk.js.LICENSE.txt": "/ap-admin/static/js/2.ab6e6e3c.chunk.js.LICENSE.txt",
-    "static/js/main.8426af0c.chunk.js.LICENSE.txt": "/ap-admin/static/js/main.8426af0c.chunk.js.LICENSE.txt"
+    "static/js/main.76184625.chunk.js.LICENSE.txt": "/ap-admin/static/js/main.76184625.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.de496429.js",
     "static/css/2.adf0d68f.chunk.css",
     "static/js/2.ab6e6e3c.chunk.js",
-    "static/css/main.d060c006.chunk.css",
-    "static/js/main.8426af0c.chunk.js"
+    "static/css/main.4a56bdd9.chunk.css",
+    "static/js/main.76184625.chunk.js"
   ]
 }
