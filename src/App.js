@@ -17,7 +17,7 @@ function App() {
           <ProtectedRoute path="/adm/" component={Main} exact />
           <Route path="/ap-admin" component={Landing} exact />
           <Route path="/ap-admin/interm" component={Intermediate} exact />
-          <Redirect to="/" />
+          <Redirect to="/ap-admin" />
         </Switch>
       </UserContextProvider>
     </BrowserRouter>
