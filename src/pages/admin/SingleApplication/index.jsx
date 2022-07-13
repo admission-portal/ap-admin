@@ -41,10 +41,6 @@ export default function SingleApplication() {
           temp = response.data.response;
           setSingleApplicationData(response.data.response);
         }
-        console.log(response.data.response);
-      })
-      .catch((error) => {
-        console.log(error);
       });
   }, []);
 

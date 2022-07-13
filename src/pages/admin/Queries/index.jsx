@@ -33,9 +33,6 @@ export default function Queries() {
     axios(config)
       .then((response) => {
         setQueryList(response.data.body);
-      })
-      .catch((error) => {
-        console.log(error);
       });
   }, [countUpdate]);
 

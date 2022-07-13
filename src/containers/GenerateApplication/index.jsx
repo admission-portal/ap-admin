@@ -74,9 +74,6 @@ export default function GenerateApplication() {
             message: 'Please try Again !',
           });
         }
-      })
-      .catch((error) => {
-        console.error(error);
       });
   };
 

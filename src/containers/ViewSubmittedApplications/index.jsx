@@ -17,9 +17,6 @@ export default function ViewSubmittedApplications() {
     axios(config)
       .then((response) => {
         setdata(response.data.body.Items);
-      })
-      .catch((error) => {
-        console.log(error);
       });
   }, []);
 

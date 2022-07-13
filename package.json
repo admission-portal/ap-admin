@@ -1,6 +1,6 @@
 {
   "name": "ap-admin",
-  "homepage": "http://admission-portal.github.io/ap-admin",
+  "homepage": "https://resilient-froyo-c73d8d.netlify.app/ap-admin",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

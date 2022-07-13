@@ -21,14 +21,8 @@ export default function ViewApplication() {
       .then((response) => {
         setDetails(response.data.Items);
         // console.log(response.data.Items);
-      })
-      .catch((error) => {
-        console.log(error);
       });
   }, []);
-
-  console.log(Details);
-
   return (
     <div className="ViewApplication">
       <PageHeader title="View Applications" />

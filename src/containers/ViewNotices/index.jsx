@@ -34,10 +34,6 @@ export default function ViewNotices({ tempState }) {
           setNotices(result.Items);
         }
         // else {console.log("Error!")};
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error);
       });
   }, [tempState]);
 
@@ -65,9 +61,6 @@ export default function ViewNotices({ tempState }) {
         //! CHECk
         const ResponseData = JSON.parse(data);
         setNotices(ResponseData.Items);
-      })
-      .catch((error) => {
-        console.log(error);
       });
     // console.log("clicked")
   };

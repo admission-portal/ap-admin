@@ -113,7 +113,6 @@ export default function CustomTable({ data, customTableColumnsData }) {
       });
     });
   }
-  console.log(data, customTableColumnsData);
   return (
     <Table
       responsive
