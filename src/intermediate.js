@@ -13,8 +13,8 @@ export default function Itermediate() {
   const [, setUser] = useContext(UserContext);
   try {
     /*  NOTE: need to check the condition here
-        *   try-catch is temp here
-        */
+     *   try-catch is temp here
+     */
     const temp = window.location.href.split('#')[1];
     const paramString = temp.split('&')[0];
     const queryString = new URLSearchParams(paramString);
@@ -36,9 +36,5 @@ export default function Itermediate() {
   } catch (e) {
     console.log(e);
   }
-  return (
-    <div>
-      Redirecting...
-    </div>
-  );
+  return <div>Redirecting...</div>;
 }

@@ -11,7 +11,12 @@ export default function Notices() {
 
   return (
     <div className="Notices">
-      <Tabs defaultActiveKey="1" onChange={() => { }} type="card" tabPosition="left">
+      <Tabs
+        defaultActiveKey="1"
+        onChange={() => {}}
+        type="card"
+        tabPosition="left"
+      >
         <TabPane tab="View Notices" key="1">
           <ViewNotices tempState={tempState} />
         </TabPane>

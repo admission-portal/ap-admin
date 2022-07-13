@@ -15,10 +15,12 @@ function AppHeader() {
 
   return (
     <Header className="site-layout-background Header">
-      <div className="logout">
-        <span> 👨‍🎓 ad</span>
-        <span>MISSION</span>
-      </div>
+      <a href="/adm/">
+        <div className="logout">
+          <span> 👨‍🎓 ad</span>
+          <span>MISSION</span>
+        </div>
+      </a>
     </Header>
   );
 }

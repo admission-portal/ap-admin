@@ -1,8 +1,8 @@
 /* eslint-disable */
-import React, { useEffect, useState } from 'react';
-import { Row, Col } from 'antd';
-import { PageHeader } from '../../components';
-import './style.css';
+import React, { useEffect, useState } from "react";
+import { Row, Col } from "antd";
+import { PageHeader } from "../../components";
+import "./style.css";
 
 export default function DetailsOfApplication({ detailsData }) {
   const [Details, setDetails] = useState(detailsData);
@@ -23,50 +23,41 @@ export default function DetailsOfApplication({ detailsData }) {
       <Row>
         <Col span={24}>
           <form autoComplete="off" onSubmit={onSubmit} id="DetailForm">
-
+            <br /> <label>Application ID:</label>
             <br />
-            {' '}
-            <label>Application ID:</label>
-            <br />
-
             <input
               type="text"
               value={Details.ApplicationID}
-              onChange={(e) => { }}
+              onChange={(e) => {}}
               required
               disabled={ClickedOnEdit}
             />
-
             <br />
             <label>Title</label>
             <br />
-
             <input
               type="text"
               id="title"
               name="title"
               placeholder="Enter Title"
               value={Details.title}
-              onChange={(e) => { }}
+              onChange={(e) => {}}
               required
               disabled={ClickedOnEdit}
             />
-
             <br />
             <label>Description</label>
             <br />
-
             <input
               type="text"
               id="description"
               name="description"
               placeholder="Enter Description Here"
               value={Details.description}
-              onChange={(e) => { }}
+              onChange={(e) => {}}
               required
               disabled={ClickedOnEdit}
             />
-
             <br />
             <label>Branch</label>
             <br />
@@ -76,14 +67,11 @@ export default function DetailsOfApplication({ detailsData }) {
               name="Branch"
               placeholder="For Branch"
               value={Details.branch}
-              onChange={(e) => { }}
+              onChange={(e) => {}}
               required
               disabled={ClickedOnEdit}
             />
-
-            <br />
-            {' '}
-            <label>stream</label>
+            <br /> <label>stream</label>
             <br />
             <input
               type="text"
@@ -91,15 +79,12 @@ export default function DetailsOfApplication({ detailsData }) {
               name="stream"
               placeholder="For stream"
               value={Details.stream}
-              onChange={(e) => { }}
+              onChange={(e) => {}}
               required
               disabled={ClickedOnEdit}
             />
-
             <br />
-            <label>Fees :</label>
-            {' '}
-            <br />
+            <label>Fees :</label> <br />
             <input
               type="number"
               id="Fees"
@@ -107,41 +92,54 @@ export default function DetailsOfApplication({ detailsData }) {
               name="Fees"
               placeholder="Registration Fees"
               value={Details.fees}
-              onChange={(e) => { }}
+              onChange={(e) => {}}
               required
               disabled={ClickedOnEdit}
             />
-
-            <div style={{ display: 'flex', alignItems: 'center', marginTop: '1.1em' }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginTop: "1.1em",
+              }}
+            >
               <label htmlFor="DueDate">Last Date to fill form :</label>
 
               <input
                 id="DueDate"
                 type="date"
-                style={{ marginLeft: '0.5em' }}
+                style={{ marginLeft: "0.5em" }}
                 value={Details.lastDate}
-                onChange={(e) => { }}
+                onChange={(e) => {}}
                 required
                 disabled={ClickedOnEdit}
               />
-
             </div>
-
             {!ClickedOnEdit && (
-            <div className="Application_btn_container">
-              <input type="button" value="Cancel" onClick={() => { setClickedOnEdit(!ClickedOnEdit); }} />
-              <input type="submit" value="Save Changes" />
-            </div>
+              <div className="Application_btn_container">
+                <input
+                  type="button"
+                  value="Cancel"
+                  onClick={() => {
+                    setClickedOnEdit(!ClickedOnEdit);
+                  }}
+                />
+                <input type="submit" value="Save Changes" />
+              </div>
             )}
             {ClickedOnEdit && (
-            <div className="Application_btn_container">
-              <input type="button" value="Edit" onClick={() => { setClickedOnEdit(!ClickedOnEdit); }} />
-            </div>
+              <div className="Application_btn_container">
+                <input
+                  type="button"
+                  value="Edit"
+                  onClick={() => {
+                    setClickedOnEdit(!ClickedOnEdit);
+                  }}
+                />
+              </div>
             )}
-
           </form>
         </Col>
-
       </Row>
     </div>
   );

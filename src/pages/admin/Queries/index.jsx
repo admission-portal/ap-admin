@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-plusplus */
 /* eslint-disable react/jsx-no-useless-fragment */
 import './style.css';
@@ -23,8 +24,9 @@ export default function Queries() {
       method: 'get',
       url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/queries/',
       headers: {
-        Authorization: sessionStorage.getItem('id_token') ? sessionStorage.getItem('id_token') : '',
-
+        Authorization: sessionStorage.getItem('id_token')
+          ? sessionStorage.getItem('id_token')
+          : '',
       },
     };
 
@@ -44,7 +46,6 @@ export default function Queries() {
       <BrowserRouter>
         <Layout>
           <Row>
-
             <Col span={20}>
               <div className="myquery_TopTitle">
                 <Typography.Title level={2}>Queries</Typography.Title>
@@ -56,14 +57,13 @@ export default function Queries() {
                 <TabPane tab="All Queries" key={tabkey++}>
                   <Row>
                     <Col span={24}>
-                      {
-                      QueryList !== undefined
-                        ? QueryList.map(
-                          ({ email, queries }) => queries.map(
-                            (data) => <QueryCard queryCarddata={data} email={email} />,
-                          ),
-                        ) : <Skeleton active />
-}
+                      {QueryList !== undefined ? (
+                        QueryList.map(({ email, queries }) => queries.map((data) => (
+                          <QueryCard queryCarddata={data} email={email} />
+                        )))
+                      ) : (
+                        <Skeleton active />
+                      )}
                     </Col>
                   </Row>
                 </TabPane>
@@ -72,19 +72,11 @@ export default function Queries() {
                   <Row>
                     <Col span={24}>
                       {QueryList !== undefined
-                       && QueryList.map(
-                         ({ email, queries }) => queries.map(
-                           (data) => (
-                             data.querystatus.status
-                               ? (
-                                 <QueryCard
-                                   queryCarddata={data}
-                                   email={email}
-                                 />
-                               ) : <></>
-                           ),
-                         ),
-                       )}
+                        && QueryList.map(({ email, queries }) => queries.map((data) => (data.querystatus.status ? (
+                          <QueryCard queryCarddata={data} email={email} />
+                        ) : (
+                          <></>
+                        ))))}
                     </Col>
                   </Row>
                 </TabPane>
@@ -92,15 +84,12 @@ export default function Queries() {
                 <TabPane tab="Pending" key={tabkey++}>
                   <Row>
                     <Col span={24}>
-                      {QueryList !== undefined && QueryList.map(
-                        ({ email, queries }) => queries.map((data) => (!data.querystatus.status ? (
-                          <QueryCard
-                            queryCarddata={data}
-                            email={email}
-                          />
-                        )
-                          : <></>)),
-                      )}
+                      {QueryList !== undefined
+                        && QueryList.map(({ email, queries }) => queries.map((data) => (!data.querystatus.status ? (
+                          <QueryCard queryCarddata={data} email={email} />
+                        ) : (
+                          <></>
+                        ))))}
                     </Col>
                   </Row>
                 </TabPane>

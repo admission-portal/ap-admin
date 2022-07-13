@@ -1,13 +1,13 @@
 .querycard {
-  margin-top: 1.0em;
-  margin-bottom: 1.0em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .ant-card {
   border-radius: 1em;
 }
 
-.querycard input[type=text] {
+.querycard input[type="text"] {
   width: 65vw;
   padding: 0.6em;
   margin-top: 0.6em;
@@ -17,11 +17,12 @@
   margin-right: 0.7em;
 }
 
-.querycard input[type=text]:focus {
+.querycard input[type="text"]:focus {
   outline: none;
 }
 
-.querycard input[type=submit], .querycard input[type=button] {
+.querycard input[type="submit"],
+.querycard input[type="button"] {
   margin-top: 0.7em;
   margin-right: 0.4em;
   padding: 0.6em 1em;

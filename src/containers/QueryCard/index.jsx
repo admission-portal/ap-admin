@@ -4,7 +4,10 @@ import {
   Typography, Row, Col, Card, Divider,
 } from 'antd';
 import {
-  CheckSquareOutlined, EditOutlined, CloseSquareOutlined, DeleteOutlined,
+  CheckSquareOutlined,
+  EditOutlined,
+  CloseSquareOutlined,
+  DeleteOutlined,
 } from '@ant-design/icons';
 import './style.css';
 
@@ -31,7 +34,10 @@ export default function QueryCard({ queryCarddata, email }) {
             <Typography.Title level={5}>
               Reply :
               {' '}
-              <EditOutlined style={{ fontSize: '1.2em' }} onClick={() => setReply(!Reply)} />
+              <EditOutlined
+                style={{ fontSize: '1.2em' }}
+                onClick={() => setReply(!Reply)}
+              />
             </Typography.Title>
           </Col>
           <Col md={24}>
@@ -41,10 +47,8 @@ export default function QueryCard({ queryCarddata, email }) {
               {queryCarddata.querydesc}
             </Typography.Text>
           </Col>
-
         </Row>
         <Row>
-
           <Col md={5}>
             <Typography.Text>
               Id :
@@ -54,7 +58,10 @@ export default function QueryCard({ queryCarddata, email }) {
           </Col>
           <Col md={4}>
             <Typography.Text>Status: </Typography.Text>
-            <Typography.Text keyboard type={queryCarddata.querystatus.keyboardtype}>
+            <Typography.Text
+              keyboard
+              type={queryCarddata.querystatus.keyboardtype}
+            >
               {queryCarddata.querystatus.tag}
             </Typography.Text>
           </Col>
@@ -86,19 +93,27 @@ export default function QueryCard({ queryCarddata, email }) {
           </Col>
         </Row>
 
-        {Reply
-          && (
+        {Reply && (
           <Row>
             <Col span={24}>
               <Divider />
               <form onSubmit={onSubmit}>
-                <input type="text" placeholder="Write your Reply here" value={ReplyTextData} onChange={(e) => setReplyTextData(e.target.value)} />
+                <input
+                  type="text"
+                  placeholder="Write your Reply here"
+                  value={ReplyTextData}
+                  onChange={(e) => setReplyTextData(e.target.value)}
+                />
                 <input type="submit" value="Reply" />
-                <input type="button" value="Cancel" onClick={() => setReply(!Reply)} />
+                <input
+                  type="button"
+                  value="Cancel"
+                  onClick={() => setReply(!Reply)}
+                />
               </form>
             </Col>
           </Row>
-          )}
+        )}
 
         {/* <Row>
           <Col span={8}>

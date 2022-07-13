@@ -20,7 +20,10 @@ export default function CCalendar() {
       case 8:
         listData = [
           { type: 'warning', content: 'Due Date Passed!' },
-          { type: 'success', content: 'Successfully Submitted the BTECH Application' },
+          {
+            type: 'success',
+            content: 'Successfully Submitted the BTECH Application',
+          },
         ];
         break;
       case 10:
@@ -33,7 +36,6 @@ export default function CCalendar() {
         listData = [
           { type: 'warning', content: 'BSc Application is out now !' },
           { type: 'warning', content: 'Something New in Notices' },
-
         ];
         break;
       default:
@@ -70,7 +72,10 @@ export default function CCalendar() {
     ) : null;
   }
   return (
-    <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
+    <Calendar
+      dateCellRender={dateCellRender}
+      monthCellRender={monthCellRender}
+    />
   );
 }
 

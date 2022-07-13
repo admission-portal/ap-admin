@@ -26,7 +26,10 @@ export default function ViewSubmittedApplications() {
   return (
     <div>
       <PageHeader title="Submitted Applications" />
-      <CustomTable data={customTableData} customTableColumnsData={customTableColumnsData} />
+      <CustomTable
+        data={customTableData}
+        customTableColumnsData={customTableColumnsData}
+      />
     </div>
   );
 }

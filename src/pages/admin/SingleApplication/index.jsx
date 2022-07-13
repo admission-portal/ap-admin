@@ -52,12 +52,16 @@ export default function SingleApplication() {
     <div className="SingleApplication">
       <Row>
         <Col span={24}>
-          <Tabs defaultActiveKey="1" onChange={() => { }} type="card" tabPosition="top">
+          <Tabs
+            defaultActiveKey="1"
+            onChange={() => {}}
+            type="card"
+            tabPosition="top"
+          >
             <TabPane tab="Details" key="1">
-              {
-              SingleApplicationData
-               && <DetailsOfApplication detailsData={SingleApplicationData} />
-                            }
+              {SingleApplicationData && (
+                <DetailsOfApplication detailsData={SingleApplicationData} />
+              )}
             </TabPane>
 
             <TabPane tab="Submitted Application" key="2">

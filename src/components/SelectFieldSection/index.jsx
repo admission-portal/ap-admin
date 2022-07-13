@@ -13,7 +13,10 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 const colors = ['cyan', 'blue', 'geekblue', 'purple'];
 
 export default function SelectFieldSection({
-  Labels, title, GlobalLabels, setGlobalLabels,
+  Labels,
+  title,
+  GlobalLabels,
+  setGlobalLabels,
 }) {
   // Fields/Label dragged from the pool will be stored in the SelectedFields array
   const [SelectedFields, setSelectedFields] = useState([]);
@@ -46,7 +49,10 @@ export default function SelectFieldSection({
       setSelectedFields([...SelectedFields, GivenFields[result.source.index]]);
 
       // setting up the global state for Application form/DB
-      setGlobalLabels({ ...GlobalLabels, [`${title}`]: [...SelectedFields, GivenFields[result.source.index]] });
+      setGlobalLabels({
+        ...GlobalLabels,
+        [`${title}`]: [...SelectedFields, GivenFields[result.source.index]],
+      });
 
       const arr = [...GivenFields];
       arr.splice(result.source.index, 1);
@@ -63,22 +69,28 @@ export default function SelectFieldSection({
         <Col span={12}>
           <Droppable droppableId="Given_option_1">
             {(provided) => (
-              <div className="GenerateApplication_Given_Options" {...provided.droppableProps} ref={provided.innerRef}>
+              <div
+                className="GenerateApplication_Given_Options"
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
                 {GivenFields.map((item, index) => (
-                  <Draggable key={item.title} draggableId={item.title} index={index}>
-                    {
-                                            (provided) => (
-                                              <Tag
-                                                ref={provided.innerRef}
-                                                {...provided.draggableProps}
-                                                {...provided.dragHandleProps}
-                                                color={colors[index % colors.length]}
-                                                key={index}
-                                              >
-                                                {item.title}
-                                              </Tag>
-                                            )
-                                        }
+                  <Draggable
+                    key={item.title}
+                    draggableId={item.title}
+                    index={index}
+                  >
+                    {(provided) => (
+                      <Tag
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        color={colors[index % colors.length]}
+                        key={index}
+                      >
+                        {item.title}
+                      </Tag>
+                    )}
                   </Draggable>
                 ))}
                 {provided.placeholder}
@@ -88,7 +100,6 @@ export default function SelectFieldSection({
         </Col>
 
         <Col span={12}>
-
           <Droppable droppableId="selected_option_1">
             {(provided) => (
               <div
@@ -97,26 +108,27 @@ export default function SelectFieldSection({
                 ref={provided.innerRef}
               >
                 {SelectedFields.map((item, index) => (
-                  <Draggable key={item.title} draggableId={item.title} index={index}>
-                    {
-                                            (provided) => (
-                                              <Tag
-                                                ref={provided.innerRef}
-                                                {...provided.draggableProps}
-                                                {...provided.dragHandleProps}
-                                                color={colors[index % colors.length]}
-                                                key={index}
-                                              >
-                                                {item.title}
-                                              </Tag>
-                                            )
-                                        }
+                  <Draggable
+                    key={item.title}
+                    draggableId={item.title}
+                    index={index}
+                  >
+                    {(provided) => (
+                      <Tag
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        color={colors[index % colors.length]}
+                        key={index}
+                      >
+                        {item.title}
+                      </Tag>
+                    )}
                   </Draggable>
                 ))}
                 {provided.placeholder}
               </div>
             )}
-
           </Droppable>
         </Col>
       </DragDropContext>

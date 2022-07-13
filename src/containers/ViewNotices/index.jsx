@@ -15,7 +15,9 @@ export default function ViewNotices({ tempState }) {
   const [idToBeDeleted, setidToBeDeleted] = useState(''); // const [IsLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    if (Notices.length >= 1) { document.getElementById('notice_delete_btn').focus(); }
+    if (Notices.length >= 1) {
+      document.getElementById('notice_delete_btn').focus();
+    }
 
     const config = {
       method: 'get',
@@ -28,7 +30,9 @@ export default function ViewNotices({ tempState }) {
     axios(config)
       .then((response) => {
         const result = JSON.parse(response.data);
-        if (result.ResponseMetadata.HTTPStatusCode == 200) { setNotices(result.Items); }
+        if (result.ResponseMetadata.HTTPStatusCode == 200) {
+          setNotices(result.Items);
+        }
         // else {console.log("Error!")};
         console.log(result);
       })
@@ -54,7 +58,7 @@ export default function ViewNotices({ tempState }) {
     };
 
     axios(config)
-    // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line no-unused-vars
       .then((response) => {
         // console.log(JSON.parse(response.data))
         // after delete behaviour
@@ -73,52 +77,58 @@ export default function ViewNotices({ tempState }) {
       <PageHeader title="View Notices" />
       <Row sm={24} md={12} lg={6} xl={6} gutter={24}>
         {Notices.length >= 1 && (
-        <div style={{ marginBottom: '2em' }}>
-          <form onSubmit={(e) => { e.preventDefault(); deleteNotice(idToBeDeleted); }}>
-            <input
-              style={{
-                width: '50vw',
-                marginLeft: '0.9em',
-                outline: 'none',
-                border: 'none',
-                background: 'aliceblue',
-                padding: '0.2em',
-                // boxShadow: '0px 1px 1px black',
-                borderRadius: '2px',
+          <div style={{ marginBottom: '2em' }}>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                deleteNotice(idToBeDeleted);
               }}
-              type="text"
-              placeholder="Enter ID of Notice to be deleted "
-              required
-              value={idToBeDeleted}
-              onChange={(e) => { setidToBeDeleted(e.target.value); }}
-            />
+            >
+              <input
+                style={{
+                  width: '50vw',
+                  marginLeft: '0.9em',
+                  outline: 'none',
+                  border: 'none',
+                  background: 'aliceblue',
+                  padding: '0.2em',
+                  // boxShadow: '0px 1px 1px black',
+                  borderRadius: '2px',
+                }}
+                type="text"
+                placeholder="Enter ID of Notice to be deleted "
+                required
+                value={idToBeDeleted}
+                onChange={(e) => {
+                  setidToBeDeleted(e.target.value);
+                }}
+              />
 
-            <input
-              style={{
-                padding: '0.1em',
-                backgroundColor: 'transparent',
-                borderRadius: '3px',
-                marginLeft: '0.3em',
-                border: '0.5px solid black',
-                cursor: 'pointer',
-              }}
-              type="submit"
-              value="Delete"
-              id="notice_delete_btn"
-            />
-          </form>
-        </div>
+              <input
+                style={{
+                  padding: '0.1em',
+                  backgroundColor: 'transparent',
+                  borderRadius: '3px',
+                  marginLeft: '0.3em',
+                  border: '0.5px solid black',
+                  cursor: 'pointer',
+                }}
+                type="submit"
+                value="Delete"
+                id="notice_delete_btn"
+              />
+            </form>
+          </div>
         )}
       </Row>
       <Row sm={24} md={12} lg={6} xl={6} gutter={24}>
         <Col>
-          {Notices != undefined
-                        && (
-                        <CustomTable
-                          data={Notices}
-                          customTableColumnsData={customTableColumnsData}
-                        />
-                        )}
+          {Notices != undefined && (
+            <CustomTable
+              data={Notices}
+              customTableColumnsData={customTableColumnsData}
+            />
+          )}
         </Col>
       </Row>
     </div>

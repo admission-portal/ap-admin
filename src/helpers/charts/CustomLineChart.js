@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
-import { Line } from 'react-chartjs-2';
+import React from "react";
+import { Line } from "react-chartjs-2";
 
 export default function CustomLineChart({ chartData }) {
   const typeName = chartData.type;
-  const xAxisLabels = chartData.lines[0].data !== undefined
-    ? Object.keys(chartData.lines[0].data) : [];
+  const xAxisLabels =
+    chartData.lines[0].data !== undefined
+      ? Object.keys(chartData.lines[0].data)
+      : [];
 
   const datasets = chartData.lines.map((line) => {
     const data = {
@@ -19,12 +21,12 @@ export default function CustomLineChart({ chartData }) {
       fill: false,
     };
 
-    if (typeName === 'Daily') {
+    if (typeName === "Daily") {
       data.label = `${line.month}, ${line.year}`;
-    } else if (typeName === 'Monthly') {
+    } else if (typeName === "Monthly") {
       data.label = `${line.year}`;
-    } else if (typeName === 'Yearly') {
-      data.label = 'Trend';
+    } else if (typeName === "Yearly") {
+      data.label = "Trend";
     }
 
     return data;
@@ -32,22 +34,24 @@ export default function CustomLineChart({ chartData }) {
 
   const options = {
     scales: {
-    //   min: 0,
-      yAxes: [{
-        ticks: {
-          beginAtZero: true,
+      //   min: 0,
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
         },
-      }],
+      ],
     },
     plugins: {
       legend: {
         display: true,
-        position: 'top',
+        position: "top",
         labels: {
           width: 10,
-          color: '#000000',
+          color: "#000000",
           font: {
-            family: 'PoppinsRegular, sans-serif',
+            family: "PoppinsRegular, sans-serif",
             size: 14,
           },
         },

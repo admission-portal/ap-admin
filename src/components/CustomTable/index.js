@@ -26,7 +26,10 @@ export default function CustomTable({ data, customTableColumnsData }) {
 
   const getColumnSearchProps = (dataIndex) => ({
     filterDropdown: ({
-      setSelectedKeys, selectedKeys, confirm, clearFilters,
+      setSelectedKeys,
+      selectedKeys,
+      confirm,
+      clearFilters,
     }) => (
       <div style={{ padding: 8 }}>
         <Input
@@ -49,7 +52,11 @@ export default function CustomTable({ data, customTableColumnsData }) {
           >
             Search
           </Button>
-          <Button onClick={() => handleReset(clearFilters)} size="small" style={{ width: 90 }}>
+          <Button
+            onClick={() => handleReset(clearFilters)}
+            size="small"
+            style={{ width: 90 }}
+          >
             Reset
           </Button>
           <Button
@@ -66,9 +73,14 @@ export default function CustomTable({ data, customTableColumnsData }) {
         </Space>
       </div>
     ),
-    filterIcon: (filtered) => <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />,
+    filterIcon: (filtered) => (
+      <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
+    ),
     onFilter: (value, record) => (record[dataIndex]
-      ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())
+      ? record[dataIndex]
+        .toString()
+        .toLowerCase()
+        .includes(value.toLowerCase())
       : ''),
     onFilterDropdownVisibleChange: (visible) => {
       if (visible) {
@@ -95,12 +107,10 @@ export default function CustomTable({ data, customTableColumnsData }) {
   const columns = [];
   if (customTableColumnsData !== undefined) {
     customTableColumnsData.forEach((element) => {
-      columns.push(
-        {
-          ...getColumnSearchProps(element.key),
-          ...element,
-        },
-      );
+      columns.push({
+        ...getColumnSearchProps(element.key),
+        ...element,
+      });
     });
   }
   console.log(data, customTableColumnsData);

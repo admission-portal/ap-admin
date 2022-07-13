@@ -24,7 +24,9 @@ const GlobalInitialState = {
   'Payment Modes': [],
 };
 export default function GenerateApplication() {
-  const [ApplicationData, setApplicationData] = useState(ApplicationInitialState);
+  const [ApplicationData, setApplicationData] = useState(
+    ApplicationInitialState,
+  );
   const [GlobalLabels, setGlobalLabels] = useState(GlobalInitialState);
 
   const onSubmit = (e) => {
@@ -33,7 +35,9 @@ export default function GenerateApplication() {
     // console.log(GlobalLabels);
 
     let temp = [...ApplicationData.title];
-    temp = `APP-${temp[0]}${temp[1]}${temp[2]}${temp[temp.length - 3]}${temp[temp.length - 2]}${temp[temp.length - 1]}${Math.floor(Math.random(1) * 1000)}`;
+    temp = `APP-${temp[0]}${temp[1]}${temp[2]}${temp[temp.length - 3]}${
+      temp[temp.length - 2]
+    }${temp[temp.length - 1]}${Math.floor(Math.random(1) * 1000)}`;
 
     //! API CALL HERE
     const data = JSON.stringify({
@@ -60,7 +64,7 @@ export default function GenerateApplication() {
           notification.open({
             message: 'Application Generated !',
             description:
-                            'Application Generated Successfully. To view te generated application move to view application tab.',
+              'Application Generated Successfully. To view te generated application move to view application tab.',
           });
 
           // Reset form after submission
@@ -86,7 +90,9 @@ export default function GenerateApplication() {
           name="title"
           placeholder="Enter Title"
           value={ApplicationData.title}
-          onChange={(e) => { setApplicationData({ ...ApplicationData, title: e.target.value }); }}
+          onChange={(e) => {
+            setApplicationData({ ...ApplicationData, title: e.target.value });
+          }}
           required
         />
 
@@ -97,7 +103,10 @@ export default function GenerateApplication() {
           placeholder="Enter Description Here"
           value={ApplicationData.description}
           onChange={(e) => {
-            setApplicationData({ ...ApplicationData, description: e.target.value });
+            setApplicationData({
+              ...ApplicationData,
+              description: e.target.value,
+            });
           }}
           required
         />
@@ -108,7 +117,9 @@ export default function GenerateApplication() {
           name="Branch"
           placeholder="For Branch"
           value={ApplicationData.branch}
-          onChange={(e) => { setApplicationData({ ...ApplicationData, branch: e.target.value }); }}
+          onChange={(e) => {
+            setApplicationData({ ...ApplicationData, branch: e.target.value });
+          }}
           required
         />
 
@@ -118,7 +129,9 @@ export default function GenerateApplication() {
           name="stream"
           placeholder="For stream"
           value={ApplicationData.stream}
-          onChange={(e) => { setApplicationData({ ...ApplicationData, stream: e.target.value }); }}
+          onChange={(e) => {
+            setApplicationData({ ...ApplicationData, stream: e.target.value });
+          }}
           required
         />
 
@@ -129,11 +142,15 @@ export default function GenerateApplication() {
           name="Fees"
           placeholder="Registration Fees"
           value={ApplicationData.fees}
-          onChange={(e) => { setApplicationData({ ...ApplicationData, fees: e.target.value }); }}
+          onChange={(e) => {
+            setApplicationData({ ...ApplicationData, fees: e.target.value });
+          }}
           required
         />
 
-        <div style={{ display: 'flex', alignItems: 'center', marginTop: '1.1em' }}>
+        <div
+          style={{ display: 'flex', alignItems: 'center', marginTop: '1.1em' }}
+        >
           <label htmlFor="DueDate">
             Last Date to fill form :
             <br />
@@ -144,14 +161,20 @@ export default function GenerateApplication() {
               style={{ marginLeft: '0.5em' }}
               value={ApplicationData.lastDate}
               onChange={(e) => {
-                setApplicationData({ ...ApplicationData, lastDate: e.target.value });
+                setApplicationData({
+                  ...ApplicationData,
+                  lastDate: e.target.value,
+                });
               }}
               required
             />
           </label>
         </div>
 
-        <SelectFields GlobalLabels={GlobalLabels} setGlobalLabels={setGlobalLabels} />
+        <SelectFields
+          GlobalLabels={GlobalLabels}
+          setGlobalLabels={setGlobalLabels}
+        />
         <div className="Application_btn_container">
           <input type="submit" value="Generate" />
         </div>

@@ -4,14 +4,17 @@ import { AppHeader } from '../../../components';
 
 export default function Landing() {
   let hostedUI;
-  if (!(window.location.href[(window.location.href).length - 1] === '/')) {
+  if (!(window.location.href[window.location.href.length - 1] === '/')) {
     hostedUI = `https://handlemyadmissionsforadmin.auth.us-east-1.amazoncognito.com/login?client_id=7pcvc94m5cq87qbdkpdlj40qho&response_type=token&scope=email+phone+openid+aws.cognito.signin.user.admin+profile&redirect_uri=${window.location.href}/interm`;
   }
   return (
     <div className="Landing">
       <AppHeader />
       <section className="showcase">
-        <img src="https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="..." />
+        <img
+          src="https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="..."
+        />
         <div className="overlay" />
         <div className="text">
           <h2>adMISSION Portal </h2>

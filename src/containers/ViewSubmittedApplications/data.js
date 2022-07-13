@@ -154,7 +154,6 @@ export const customTableColumnsData = [
     sorter: (a, b) => a.address.length - b.address.length,
     sortDirections: ['descend', 'ascend'],
   },
-
 ];
 // export const customTableColumns = [
 //     {

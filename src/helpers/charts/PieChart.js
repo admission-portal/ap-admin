@@ -11,9 +11,13 @@ function PieChart() {
             cutout: '60%',
             label: 'no of applicants',
             data: [45, 120, 10],
-            backgroundColor: ['rgba(178, 255, 255, 0.52)', 'rgba(12, 175, 255, 0.52)', 'rgba(0, 118, 206, 0.52)'],
-          }],
-
+            backgroundColor: [
+              'rgba(178, 255, 255, 0.52)',
+              'rgba(12, 175, 255, 0.52)',
+              'rgba(0, 118, 206, 0.52)',
+            ],
+          },
+        ],
       }}
       options={{
         // radius: '80%',
@@ -34,7 +38,6 @@ function PieChart() {
         maintainAspectRatio: false,
       }}
     />
-
   );
 }
 
