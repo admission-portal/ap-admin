@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { notification } from 'antd';
 import axios from 'axios';
+import { UserContext } from '../../contexts/user';
 import { PageHeader, SelectFields } from '../../components';
 import './style.css';
 
@@ -26,6 +27,7 @@ const GlobalInitialState = {
 export default function GenerateApplication() {
   const [ApplicationData, setApplicationData] = useState(ApplicationInitialState);
   const [GlobalLabels, setGlobalLabels] = useState(GlobalInitialState);
+  const { user } = useContext(UserContext);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +48,7 @@ export default function GenerateApplication() {
       method: 'post',
       url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/applications',
       headers: {
-        Authorization: `Bearer ${sessionStorage.getItem('id_token')}`,
+        Authorization: `Bearer ${user.idToken.jwtToken}`,
         'Content-Type': 'application/json',
       },
       data,

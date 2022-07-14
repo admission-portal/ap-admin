@@ -12,7 +12,7 @@ export default function Login() {
     e.preventDefault();
     authenticate(email, password)
       .then((data) => {
-        setUser(data.idToken.jwtToken);
+        setUser(data);
         console.log('Logged in!', typeof data.idToken.jwtToken, typeof user, user);
         history.push('/adm/');
       })

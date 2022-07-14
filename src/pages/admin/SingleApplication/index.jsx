@@ -1,15 +1,17 @@
 import { Col, Row, Tabs } from 'antd';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './style.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useHistory } from 'react-router';
 import axios from 'axios';
 import { DetailsOfApplication } from '../../../containers';
 import ViewSubmittedApplications from '../../../containers/ViewSubmittedApplications';
+import { UserContext } from '../../../contexts/user';
 
 const { TabPane } = Tabs;
 
 export default function SingleApplication() {
+  const { user } = useContext(UserContext);
   const [SingleApplicationData, setSingleApplicationData] = useState();
 
   const history = useHistory();
@@ -28,7 +30,7 @@ export default function SingleApplication() {
       method: 'put',
       url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/applications',
       headers: {
-        Authorization: `Bearer ${sessionStorage.getItem('id_token')}`,
+        Authorization: `Bearer ${user.idToken.jwtToken}`,
         'Content-Type': 'application/json',
       },
       data,

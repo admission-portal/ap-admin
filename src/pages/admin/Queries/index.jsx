@@ -5,15 +5,16 @@ import {
   Layout, Row, Tabs, Col, Typography, Skeleton,
 } from 'antd';
 import { BrowserRouter } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { QueryCard } from '../../../containers';
+import { UserContext } from '../../../contexts/user';
 
 let tabkey = 0;
 const { TabPane } = Tabs;
-
 export default function Queries() {
   const [QueryList, setQueryList] = useState();
+  const { user } = useContext(UserContext);
   // eslint-disable-next-line no-unused-vars
   const [countUpdate, setcountUpdate] = useState(0);
 
@@ -23,7 +24,7 @@ export default function Queries() {
       method: 'get',
       url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/queries/',
       headers: {
-        Authorization: sessionStorage.getItem('id_token') ? sessionStorage.getItem('id_token') : '',
+        Authorization: `Bearer ${user.idToken.jwtToken}`,
 
       },
     };
