@@ -1,8 +1,7 @@
-/* eslint-disable */
 import { Button, Form, Input } from 'antd';
 import { Link, useHistory } from 'react-router-dom';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { UserContext } from '../../../contexts/user';
 import './style.css';
 import { AppHeader } from '../../../components';
