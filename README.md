@@ -1,26 +1,51 @@
-# Getting Started with Create React App
+# ap-admin
+Contains the application which will be used by the Administrator of the University, to manage their admission process.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Structure
+Our App basically have three types of components named **component** which can be defined probably as the smallest reusable components being utilized or used by other two types,**containers** are the components that utilizes the the first type of components and the last one are **Page** components, that *mostly* use the component of other two types.
 
-## Available Scripts
+1. **Components :**
+     contains all the components that are being utilized by one or more containers or pages present in the ```src/containers``` and ```src/pages```.
+
+2. **Containers :**
+     This has the components which utilizes components and will itself get utilized by the pages' component
+
+3. **Contexts :**
+Contains the context used by the different components of the application. Also, this solves the problem of prop drilling
+
+4. **Helper :**
+    contains ```/charts```, which have Bar, line and Pie(doughnut) charts. Which is being utilized by 
+    
+6. **Pages :**
+   These are the main fully visible components of the build version of the app, which utilizes the components & containers. Can be also understood as *Views*
+
+7. **Routes :**
+    contains  ```ProtectedRoute.js```, which protects the required components from unauthenticated users, that means ,unauthenticated users can not access those components. 
+
+
+
+## Set Up the Dev Env :
+To get started with the setup , you must have NodeJS(LTS) installed in your Local machine.
+
+NOTE: Please check [NVM](https://github.com/coreybutler/nvm-windows/releases/download/1.1.9/nvm-setup.zip) or [Rush](https://rushjs.io/pages/developer/new_developer/), to control the Node version with ease. 
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm install` or `yarn` or `yarn install`
+To install the Dependencies of the application mentioned in `package.json`
 
+### `npm start` or `yarn start`
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
-
+### `npm test` or `yarn test`
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
-
+### `npm run build` or `yarn build`
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
@@ -29,42 +54,3 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
