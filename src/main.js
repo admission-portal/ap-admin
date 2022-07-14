@@ -23,7 +23,7 @@ export default function Main() {
   ];
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/ap-admin">
       <Layout style={{ minHeight: '100vh' }}>
         <AppHeader />
 
