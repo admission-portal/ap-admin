@@ -6,21 +6,6 @@ import Pool from '../UserPool';
 
 export const UserContext = React.createContext();
 
-const getSession = async () => await new Promise((resolve, reject) => {
-  const user = Pool.getCurrentUser();
-  if (user) {
-    user.getSession((err, session) => {
-      if (err) {
-        reject();
-      } else {
-        resolve(session);
-      }
-    });
-  } else {
-    reject();
-  }
-});
-
 const authenticate = async (Username, Password) => await new Promise((resolve, reject) => {
   const user = new CognitoUser({ Username, Pool });
   const authDetails = new AuthenticationDetails({ Username, Password });
@@ -50,13 +35,28 @@ const logout = () => {
 };
 
 export function UserContextProvider(props) {
-  const [user, setUser] = React.useState('');
+  const [user, setUser] = React.useState();
+  if( user === undefined) {
+
+
+    const localUser = Pool.getCurrentUser();
+  if (localUser) {
+    localUser.getSession((err, session) => {
+      if (err) {
+        console.log('Error getting the session:', err);
+      } else {
+        setUser(session);
+      }
+    });
+  } else {
+    console.log('No user logged in');
+  }
+  }
   return (
     <UserContext.Provider value={{
       user,
       setUser,
       authenticate,
-      getSession,
       logout
     }}>
       {props.children}
