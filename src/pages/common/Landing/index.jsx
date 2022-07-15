@@ -1,10 +1,12 @@
 import './style.css';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AppHeader } from '../../../components';
+import { UserContext } from '../../../contexts/user';
 
 export default function Landing() {
   const history = useHistory();
+  const { user } = useContext(UserContext);
   // let hostedUI;
   // if (!(window.location.href[(window.location.href).length - 1] === '/')) {
   //   hostedUI = `https://handlemyadmissionsforadmin.auth.us-east-1.amazoncognito.com/login?client_id=7pcvc94m5cq87qbdkpdlj40qho&response_type=token&scope=email+phone+openid+aws.cognito.signin.user.admin+profile&redirect_uri=${window.location.href}/interm`;
@@ -26,7 +28,7 @@ export default function Landing() {
             institutions in order to manage the incoming applications.
           </p>
 
-          <button onClick={() => history.push('/login')} type="button">LETS GO</button>
+          <button onClick={() => (user ? history.push('/adm/') : history.push('/login'))} type="button">LETS GO</button>
           {/* <a href={hostedUI}>LETS GO!</a> */}
         </div>
       </section>

@@ -1,27 +1,11 @@
-/*eslint-disable */
-/* eslint-disable react/prop-types */
-import React from 'react';
+/* eslint-disable */
+import React, { useEffect } from 'react';
 import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
 import Pool from '../UserPool';
 
 export const UserContext = React.createContext();
 
-const getSession = async () => await new Promise((resolve, reject) => {
-  const user = Pool.getCurrentUser();
-  if (user) {
-    user.getSession((err, session) => {
-      if (err) {
-        reject();
-      } else {
-        resolve(session);
-      }
-    });
-  } else {
-    reject();
-  }
-});
-
-const authenticate = async (Username, Password) => await new Promise((resolve, reject) => {
+const authenticate = async (Username, Password) => new Promise((resolve, reject) => {
   const user = new CognitoUser({ Username, Pool });
   const authDetails = new AuthenticationDetails({ Username, Password });
 
@@ -48,18 +32,53 @@ const logout = () => {
     user.signOut();
   }
 };
+const getSession = async () => new Promise((resolve, reject) => {
+  const user = Pool.getCurrentUser();
+  if (user) {
+    user.getSession((err, session) => {
+      if (err) {
+        reject();
+      } else {
+        resolve(session);
+      }
+    });
+  } else {
+    reject();
+  }
+});
 
-export function UserContextProvider(props) {
+export function UserContextProvider({ children }) {
   const [user, setUser] = React.useState('');
+
+  // useEffect(() => {
+  //   console.log('UserContextProvider');
+  //   const localUser = Pool.getCurrentUser();
+  //   if (localUser) {
+  //     localUser.getSession((err, session) => {
+  //       if (err) {
+  //         console.error(err);
+  //       } else if (session.isValid()) {
+  //         console.log('UserContextProvider: session is valid');
+  //         console.log(session);
+  //         setUser(session);
+  //         console.log(localUser);
+  //       }
+  //     });
+  //   } else {
+  //     console.log('No user logged in');
+  //   }
+  // }, []);
   return (
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <UserContext.Provider value={{
+      getSession,
       user,
       setUser,
       authenticate,
-      getSession,
-      logout
-    }}>
-      {props.children}
+      logout,
+    }}
+    >
+      {children}
     </UserContext.Provider>
   );
 }

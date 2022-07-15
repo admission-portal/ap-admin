@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter, Route, Switch, Redirect,
+  BrowserRouter, Redirect, Route, Switch,
 } from 'react-router-dom';
 import ProtectedRoute from './routes/ProtectedRoute';
 import Main from './main';
@@ -13,7 +13,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter basename="/ap-admin">
+    <BrowserRouter>
       <UserContextProvider>
         <Switch>
           <ProtectedRoute path="/adm/" component={Main} exact />
