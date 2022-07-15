@@ -1,4 +1,3 @@
-/*eslint-disable */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
@@ -6,7 +5,7 @@ import Pool from '../UserPool';
 
 export const UserContext = React.createContext();
 
-const authenticate = async (Username, Password) => await new Promise((resolve, reject) => {
+const authenticate = async (Username, Password) => new Promise((resolve, reject) => {
   const user = new CognitoUser({ Username, Pool });
   const authDetails = new AuthenticationDetails({ Username, Password });
 
@@ -34,32 +33,32 @@ const logout = () => {
   }
 };
 
-export function UserContextProvider(props) {
+export function UserContextProvider({ children }) {
   const [user, setUser] = React.useState();
-  if( user === undefined) {
-
-
+  if (user === undefined) {
     const localUser = Pool.getCurrentUser();
-  if (localUser) {
-    localUser.getSession((err, session) => {
-      if (err) {
-        console.log('Error getting the session:', err);
-      } else {
-        setUser(session);
-      }
-    });
-  } else {
-    console.log('No user logged in');
-  }
+    if (localUser) {
+      localUser.getSession((err, session) => {
+        if (err) {
+          console.log('Error getting the session:', err);
+        } else if (session.isValid()) {
+          setUser(session);
+        }
+      });
+    } else {
+      console.log('No user logged in');
+    }
   }
   return (
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <UserContext.Provider value={{
       user,
       setUser,
       authenticate,
-      logout
-    }}>
-      {props.children}
+      logout,
+    }}
+    >
+      {children}
     </UserContext.Provider>
   );
 }
