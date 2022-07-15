@@ -1,51 +1,137 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import {
+  Button, Form, Input, message, Modal,
+} from 'antd';
+import { Link, useHistory } from 'react-router-dom';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { CognitoUserAttribute } from 'amazon-cognito-identity-js';
 import UserPool from '../../../UserPool';
+import './style.css';
 
 export default function SignUp() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const usenameattribute = {
-    Name: 'name',
-    Value: email,
-  };
-  const pnAttribute = {
-    Name: 'phone_number',
-    Value: '+919265706142',
-  };
-  const addressAttriibute = {
-    Name: 'address',
-    value: email,
-  };
-  const attributeList = [];
-  attributeList.push(new CognitoUserAttribute(usenameattribute));
-  attributeList.push(new CognitoUserAttribute(pnAttribute));
-  attributeList.push(new CognitoUserAttribute(addressAttriibute));
-
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const history = useHistory();
-  const onSubmit = (e) => {
-    e.preventDefault();
-    UserPool.signUp(email, password, attributeList, null, (err, result) => {
-      console.log('signUp', err, result);
-      if (!err) history.push('/login');
+  const showModal = () => {
+    console.log('showModal');
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+    history.push('/login');
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  const onFinish = (values) => {
+    const usenameattribute = {
+      Name: 'name',
+      Value: values.email,
+    };
+    const pnAttribute = {
+      Name: 'phone_number',
+      Value: values.phone_number,
+    };
+    const addressAttriibute = {
+      Name: 'address',
+      value: values.email,
+    };
+    const attributeList = [];
+    attributeList.push(new CognitoUserAttribute(usenameattribute));
+    attributeList.push(new CognitoUserAttribute(pnAttribute));
+    attributeList.push(new CognitoUserAttribute(addressAttriibute));
+
+    UserPool.signUp(values.email, values.password, attributeList, null, (err, result) => {
+      if (err) {
+        console.log('signUp', err.message, result);
+        message.error(err.message);
+      }
+      if (!err) {
+        message.success('Sign up successfully!');
+        showModal();
+        console.log('signUp', result);
+        // history.push('/login');
+      }
     });
   };
   return (
-    <div>
-      SignUp
-      <form onSubmit={onSubmit}>
-        <label htmlFor="email">
-          Email
-          <input id="email" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <label htmlFor="password">
-          Password
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
-      <button onClick={() => history.push('/login')} type="button">Already, an user?</button>
-    </div>
+    <>
+      <Modal title="🎊 Welcome 🎊" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+        <h3>Welcome, on board!!🙋‍♂️</h3>
+        <p>
+          We have sent a confirmation link at your registered email address.
+        </p>
+      </Modal>
+      <section className="showcase">
+        <img src="https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="..." />
+        <div className="overlay" />
+        <div className="signup-container">
+          <Form
+            name="normal_login"
+            initialValues={{
+              remember: true,
+            }}
+            onFinish={onFinish}
+          >
+            <Form.Item
+              name="email"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input your email!',
+                },
+              ]}
+            >
+              <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" />
+            </Form.Item>
+            <Form.Item
+              name="phone_number"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input your phone number!',
+                },
+              ]}
+            >
+              <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Phone number" />
+            </Form.Item>
+            <Form.Item
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input your Password!',
+                },
+              ]}
+            >
+              <Input
+                prefix={<LockOutlined className="site-form-item-icon" />}
+                type="password"
+                placeholder="Password"
+              />
+            </Form.Item>
+            <Form.Item>
+              <Link className="login-form-forgot" to="/">
+                Forgot password
+              </Link>
+            </Form.Item>
+
+            <Form.Item>
+              <Button type="primary" htmlType="submit" className="login-form-button">
+                Sign Up
+              </Button>
+              {' '}
+              Or
+              {' '}
+              <Link to="/login">Already, an user ?</Link>
+            </Form.Item>
+          </Form>
+
+        </div>
+      </section>
+    </>
   );
 }
+// res.codeDeliveryDetails.AttributeName
