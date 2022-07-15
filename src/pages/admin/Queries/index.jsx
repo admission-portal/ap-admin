@@ -4,7 +4,7 @@ import './style.css';
 import {
   Layout, Row, Tabs, Col, Typography, Skeleton,
 } from 'antd';
-import { BrowserRouter } from 'react-router-dom';
+// import { BrowserRouter } from 'react-router-dom';
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { QueryCard } from '../../../containers';
@@ -16,8 +16,8 @@ export default function Queries() {
   const [QueryList, setQueryList] = useState();
   const { user } = useContext(UserContext);
   // eslint-disable-next-line no-unused-vars
-  const [countUpdate, setcountUpdate] = useState(0);
 
+  console.log('user-query', user, user.idToken.jwtToken);
   useEffect(() => {
     // TODO : here the data is of specific student , we need all queries. make new lambda /API EP
     const config = {
@@ -36,45 +36,44 @@ export default function Queries() {
       .catch((error) => {
         console.log(error);
       });
-  }, [countUpdate]);
+  }, []);
 
-  // console.log(QueryList);
+  console.log('QueryList', QueryList, QueryList !== undefined);
 
   return (
     <div className="myquery">
-      <BrowserRouter>
-        <Layout>
-          <Row>
+      <Layout>
+        <Row>
 
-            <Col span={20}>
-              <div className="myquery_TopTitle">
-                <Typography.Title level={2}>Queries</Typography.Title>
-              </div>
-            </Col>
+          <Col span={20}>
+            <div className="myquery_TopTitle">
+              <Typography.Title level={2}>Queries</Typography.Title>
+            </div>
+          </Col>
 
-            <Col span={23}>
-              <Tabs>
-                <TabPane tab="All Queries" key={tabkey++}>
-                  <Row>
-                    <Col span={24}>
-                      {
+          <Col span={23}>
+            <Tabs>
+              <TabPane tab="All Queries" key={tabkey++}>
+                <Row>
+                  <Col span={24}>
+                    {
                       QueryList !== undefined
                         ? QueryList.map(
-                          ({ email, queries }) => queries.map(
+                          ({ email, queries }) => queries?.map(
                             (data) => <QueryCard queryCarddata={data} email={email} />,
                           ),
                         ) : <Skeleton active />
 }
-                    </Col>
-                  </Row>
-                </TabPane>
+                  </Col>
+                </Row>
+              </TabPane>
 
-                <TabPane tab="Solved" key={tabkey++}>
-                  <Row>
-                    <Col span={24}>
-                      {QueryList !== undefined
+              <TabPane tab="Solved" key={tabkey++}>
+                <Row>
+                  <Col span={24}>
+                    {QueryList !== undefined
                        && QueryList.map(
-                         ({ email, queries }) => queries.map(
+                         ({ email, queries }) => queries?.map(
                            (data) => (
                              data.querystatus.status
                                ? (
@@ -86,30 +85,29 @@ export default function Queries() {
                            ),
                          ),
                        )}
-                    </Col>
-                  </Row>
-                </TabPane>
+                  </Col>
+                </Row>
+              </TabPane>
 
-                <TabPane tab="Pending" key={tabkey++}>
-                  <Row>
-                    <Col span={24}>
-                      {QueryList !== undefined && QueryList.map(
-                        ({ email, queries }) => queries.map((data) => (!data.querystatus.status ? (
-                          <QueryCard
-                            queryCarddata={data}
-                            email={email}
-                          />
-                        )
-                          : <></>)),
-                      )}
-                    </Col>
-                  </Row>
-                </TabPane>
-              </Tabs>
-            </Col>
-          </Row>
-        </Layout>
-      </BrowserRouter>
+              <TabPane tab="Pending" key={tabkey++}>
+                <Row>
+                  <Col span={24}>
+                    {QueryList !== undefined && QueryList.map(
+                      ({ email, queries }) => queries?.map((data) => (!data.querystatus.status ? (
+                        <QueryCard
+                          queryCarddata={data}
+                          email={email}
+                        />
+                      )
+                        : <></>)),
+                    )}
+                  </Col>
+                </Row>
+              </TabPane>
+            </Tabs>
+          </Col>
+        </Row>
+      </Layout>
     </div>
   );
 }
