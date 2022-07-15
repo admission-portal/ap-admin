@@ -3,14 +3,16 @@
 import { Row, Col } from 'antd';
 // import { Skeleton, Switch, Card, Avatar } from 'antd';
 // import { EditOutlined, EllipsisOutlined, DeleteOutlined } from '@ant-design/icons';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { CustomTable, PageHeader } from '../../components';
 import './style.css';
 import { customTableColumnsData } from './data';
+import { UserContext } from '../../contexts/user';
 
 export default function ViewNotices({ tempState }) {
   const [Notices, setNotices] = useState([]);
+  const { user } = useContext(UserContext);
 
   const [idToBeDeleted, setidToBeDeleted] = useState(''); // const [IsLoading, setIsLoading] = useState(true)
 
@@ -21,7 +23,7 @@ export default function ViewNotices({ tempState }) {
       method: 'get',
       url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/notices',
       headers: {
-        Authorization: `Bearer ${sessionStorage.getItem('id_token')}`,
+        Authorization: `Bearer ${user.idToken.jwtToken}`,
       },
     };
 
@@ -47,7 +49,7 @@ export default function ViewNotices({ tempState }) {
       method: 'delete',
       url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/notices',
       headers: {
-        Authorization: `Bearer ${sessionStorage.getItem('id_token')}`,
+        Authorization: `Bearer ${user.idToken.jwtToken}`,
         'Content-Type': 'application/json',
       },
       data,

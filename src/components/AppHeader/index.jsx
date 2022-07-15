@@ -1,23 +1,23 @@
 import './style.css';
-import React from 'react';
-// import { LogoutOutlined } from '@ant-design/icons';
+import React, { useContext } from 'react';
 import { Layout } from 'antd';
+import UserDropdown from '../UserDropdown';
+import { UserContext } from '../../contexts/user';
 
-/**
- * This function returns a Header component from the Ant Design library, with a className of
- * "site-layout-background Header" and a child component of a div with a className of "logout" and a
- * child component of a LogoutOutlined component from the Ant Design library
- * @returns A Header component with a className of "site-layout-background Header" and a div with a
- * className of "logout" and a LogoutOutlined component.
- */
 function AppHeader() {
   const { Header } = Layout;
+  const { user } = useContext(UserContext);
 
   return (
     <Header className="site-layout-background Header">
-      <div className="logout">
-        <span> 👨‍🎓 ad</span>
-        <span>MISSION</span>
+      <div className="header-container">
+        <div className="logo">
+          <span> 👨‍🎓 ad</span>
+          <span>MISSION</span>
+        </div>
+        <div className="logout">
+          {user && <UserDropdown />}
+        </div>
       </div>
     </Header>
   );

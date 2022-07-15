@@ -3,7 +3,11 @@
     background: #fff !important;
     box-shadow: 2px 5px 8px 0px #cecece !important;
     z-index: 10;
-
+}
+.ant-layout-header .header-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .ant-layout-header span{
     font-size: x-large;

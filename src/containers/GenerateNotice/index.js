@@ -1,10 +1,11 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Checkbox, notification } from 'antd';
 import axios from 'axios';
 import TextArea from 'rc-textarea';
 import { PageHeader } from '../../components';
 import './style.css';
+import { UserContext } from '../../contexts/user';
 
 const NoticeInitialSate = {
   title: '',
@@ -18,9 +19,9 @@ const NoticeInitialSate = {
   branch: '',
   stream: '',
 };
-
 export default function GenerateNotice({ tempState, settempState }) {
   const [NoticeData, setNoticeData] = useState(NoticeInitialSate);
+  const {user} =useContext(UserContext);
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -31,7 +32,7 @@ export default function GenerateNotice({ tempState, settempState }) {
       method: 'post',
       url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/notices',
       headers: {
-        Authorization: `Bearer ${sessionStorage.getItem('id_token')}`,
+        Authorization: `Bearer ${user.idToken.jwtToken}`,
         'Content-Type': 'application/json',
       },
       data,
