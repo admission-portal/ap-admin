@@ -80,6 +80,14 @@ Running on some other Node version ? we recommend you to check out this amazing 
 There are plentty of them 🎊,
 - ReactJS
 - Ant-Design
+- Amazon Web Services:
+    * Lambda
+    * DynamoDB
+    * Cognito
+    * API Gateway
+    * S3
+    * SNS
+    * SQS
 
 ## Please help me getting started with repository's structure! 🙄
 
